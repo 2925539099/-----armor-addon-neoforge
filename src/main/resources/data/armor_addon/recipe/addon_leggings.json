@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XEX",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "armor_addon:addon_leggings"
+  }
+}

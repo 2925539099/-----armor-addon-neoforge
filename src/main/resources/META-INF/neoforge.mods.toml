@@ -1,0 +1,23 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "armor_addon"
+version = "${version}"
+displayName = "盔甲附加"
+description = '''为游戏增添一套可合成的「附加盔甲」：防御与钻石相当，附魔亲和度更高，并带有少量韧性与击退抗性。'''
+
+[[dependencies.armor_addon]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.244,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.armor_addon]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1]"
+ordering = "NONE"
+side = "BOTH"

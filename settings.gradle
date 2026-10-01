@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        // NeoForge 官方仓库（maven.neoforged.net）在部分网络环境下不可达，
+        // 这里改用其 ForgeCDN 镜像。
+        maven {
+            name = 'NeoForgedCDN'
+            url = 'https://neoforged.forgecdn.net/releases/'
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'armor-addon-neoforge'

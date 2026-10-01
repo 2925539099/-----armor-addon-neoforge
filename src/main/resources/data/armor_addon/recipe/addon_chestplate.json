@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "X X",
+    "XEX",
+    "XXX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "armor_addon:addon_chestplate"
+  }
+}
