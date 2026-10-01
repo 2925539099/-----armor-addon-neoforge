@@ -18,6 +18,19 @@ java {
     withSourcesJar()
 }
 
+// 源码包只用于在 IDE 里阅读源码，绝不能被当成模组：
+//
+// 1) 剔除 neoforge.mods.toml。否则 NeoForge 会把源码包识别为模组，而其中的
+//    ${version} 占位符没有经过 processResources 展开，会直接抛出
+//    "Illegal version number specified version"，让整个游戏进入
+//    broken mod state —— 之后所有模组事件都被拒绝派发，其他模组（例如
+//    ReplayMod）会因拿不到初始化事件而在后续 tick 崩溃。
+// 2) 输出到 build/libs/sources/，避免与模组本体混在同一目录被误放进 mods/。
+tasks.named('sourcesJar', Jar) {
+    exclude 'META-INF/neoforge.mods.toml'
+    destinationDirectory.set(layout.buildDirectory.dir('libs/sources'))
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.release = 21
