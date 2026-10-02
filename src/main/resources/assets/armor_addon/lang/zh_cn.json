@@ -7,8 +7,8 @@
   "item.armor_addon.wool_chestplate": "羊毛胸甲",
   "item.armor_addon.wool_leggings": "羊毛护腿",
   "item.armor_addon.wool_boots": "羊毛靴子",
-  "item.armor_addon.iron_wool_helmet": "铁羊毛头盔",
-  "item.armor_addon.iron_wool_chestplate": "铁羊毛胸甲",
-  "item.armor_addon.iron_wool_leggings": "铁羊毛护腿",
-  "item.armor_addon.iron_wool_boots": "铁羊毛靴子"
+  "item.armor_addon.iron_wool_helmet": "铁质内衬头盔",
+  "item.armor_addon.iron_wool_chestplate": "铁质内衬胸甲",
+  "item.armor_addon.iron_wool_leggings": "铁质内衬护腿",
+  "item.armor_addon.iron_wool_boots": "铁质内衬靴子"
 }
