@@ -6,5 +6,9 @@
   "item.armor_addon.wool_helmet": "Wool Helmet",
   "item.armor_addon.wool_chestplate": "Wool Chestplate",
   "item.armor_addon.wool_leggings": "Wool Leggings",
-  "item.armor_addon.wool_boots": "Wool Boots"
+  "item.armor_addon.wool_boots": "Wool Boots",
+  "item.armor_addon.iron_wool_helmet": "Iron Wool Helmet",
+  "item.armor_addon.iron_wool_chestplate": "Iron Wool Chestplate",
+  "item.armor_addon.iron_wool_leggings": "Iron Wool Leggings",
+  "item.armor_addon.iron_wool_boots": "Iron Wool Boots"
 }

@@ -21,6 +21,12 @@ public final class ModItems {
 	/** 羊毛盔甲的耐久度倍率：皮革为 5，这里取两倍。 */
 	public static final int WOOL_DURABILITY_MULTIPLIER = 10;
 
+	/**
+	 * 铁羊毛盔甲的耐久度倍率：原版铁盔甲为 15，此处 18 正好是 +20%
+	 * （头盔 198 / 胸甲 288 / 护腿 270 / 靴子 234）。
+	 */
+	public static final int IRON_WOOL_DURABILITY_MULTIPLIER = 18;
+
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ArmorAddon.MOD_ID);
 
 	// ---- 附加盔甲 ----
@@ -42,6 +48,16 @@ public final class ModItems {
 			registerArmor("wool_leggings", ModArmorMaterials.WOOL, ArmorItem.Type.LEGGINGS, WOOL_DURABILITY_MULTIPLIER);
 	public static final DeferredItem<Item> WOOL_BOOTS =
 			registerArmor("wool_boots", ModArmorMaterials.WOOL, ArmorItem.Type.BOOTS, WOOL_DURABILITY_MULTIPLIER);
+
+	// ---- 铁羊毛盔甲（羊毛盔甲 + 铁盔甲的升级版本）----
+	public static final DeferredItem<Item> IRON_WOOL_HELMET =
+			registerArmor("iron_wool_helmet", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.HELMET, IRON_WOOL_DURABILITY_MULTIPLIER);
+	public static final DeferredItem<Item> IRON_WOOL_CHESTPLATE =
+			registerArmor("iron_wool_chestplate", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.CHESTPLATE, IRON_WOOL_DURABILITY_MULTIPLIER);
+	public static final DeferredItem<Item> IRON_WOOL_LEGGINGS =
+			registerArmor("iron_wool_leggings", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.LEGGINGS, IRON_WOOL_DURABILITY_MULTIPLIER);
+	public static final DeferredItem<Item> IRON_WOOL_BOOTS =
+			registerArmor("iron_wool_boots", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.BOOTS, IRON_WOOL_DURABILITY_MULTIPLIER);
 
 	private ModItems() {
 	}

@@ -1,12 +1,12 @@
 # 盔甲附加 (Armor Addon) — NeoForge 版
 
-Minecraft **1.21.1** / **NeoForge** 模组，新增一套可合成的「附加盔甲」。
+Minecraft **1.21.1** / **NeoForge** 模组，新增三套共 12 件可合成的盔甲。
 
 Fabric 版见同级目录 `armor-addon/`。
 
 ## 内容
 
-新增两套共 8 件盔甲。
+新增三套共 12 件盔甲。
 
 ### 附加盔甲（材料 `armor_addon:addon`）
 
@@ -48,6 +48,30 @@ Fabric 版见同级目录 `armor-addon/`。
 | 击退抗性 | 0.0 | 0.0（相同） |
 | 修复材料 | 皮革 | **羊毛（`minecraft:wool` 标签，任意颜色）** |
 
+### 铁羊毛盔甲（材料 `armor_addon:iron_wool`）
+
+羊毛盔甲与原版铁盔甲的升级版本：在工作台里用**对应的铁盔甲 + 羊毛盔甲 + 1 个锁链**合成，
+继承铁盔甲的附魔与自定义名称，并把铁盔甲已损失的耐久原样同步到新盔甲上。
+
+| 物品 | ID | 防御 | 耐久 |
+| --- | --- | --- | --- |
+| 铁羊毛头盔 | `armor_addon:iron_wool_helmet` | 3 | 198 |
+| 铁羊毛胸甲 | `armor_addon:iron_wool_chestplate` | 7 | 288 |
+| 铁羊毛护腿 | `armor_addon:iron_wool_leggings` | 6 | 270 |
+| 铁羊毛靴子 | `armor_addon:iron_wool_boots` | 3 | 234 |
+
+与原版铁盔甲的对照：
+
+| 属性 | 铁盔甲 | 铁羊毛盔甲 |
+| --- | --- | --- |
+| 防御点 | 2 / 6 / 5 / 2 | **3 / 7 / 6 / 3（各 +1）** |
+| 护甲韧性 | 0.0 | **2.0（继承羊毛盔甲）** |
+| 耐久 | 165 / 240 / 225 / 195 | **198 / 288 / 270 / 234（+20%）** |
+| 附魔亲和度 | 9 | 9（相同） |
+| 击退抗性 | 0.0 | 0.0（相同） |
+| 修复材料 | 铁锭 | 铁锭（相同） |
+| 耐久倍率 | 15 | **18** |
+
 ## 合成配方
 
 所有配方都在**工作台**上合成，形状与原版盔甲一致。
@@ -70,7 +94,20 @@ Fabric 版见同级目录 `armor-addon/`。
 | 护腿 | `XXX` / `X X` / `X X` |
 | 靴子 | `X X` / `X X` |
 
-两套盔甲都会出现在创造模式「战斗」物品栏。
+**铁羊毛盔甲** —— 在**工作台**里（无序摆放）放入**对应的铁盔甲 + 对应的羊毛盔甲 + 1 个锁链**：
+
+| 铁盔甲 | 羊毛盔甲 | 材料 | 产物 |
+| --- | --- | --- | --- |
+| 铁头盔 | 羊毛头盔 | 锁链 | 铁羊毛头盔 |
+| 铁胸甲 | 羊毛胸甲 | 锁链 | 铁羊毛胸甲 |
+| 铁护腿 | 羊毛护腿 | 锁链 | 铁羊毛护腿 |
+| 铁靴子 | 羊毛靴子 | 锁链 | 铁羊毛靴子 |
+
+合成时继承铁盔甲的附魔与自定义名称，并把铁盔甲**已损失的耐久**原样同步到产物上
+（例如损失了 100 点耐久的铁胸甲，产出的铁羊毛胸甲同样损失 100 点耐久）。
+该配方结果取决于输入，因此不会出现在配方书中（与原版皮革盔甲染色一致）。
+
+三套盔甲都会出现在创造模式「战斗」物品栏。
 
 ## 安装
 
@@ -140,7 +177,7 @@ gradlew.bat runServer
 
 ```
 盔甲附加 1.0.0 (armor_addon)
-Loaded 1294 recipes        # 原版 1290 + 本模组 4 条
+Loaded 1299 recipes        # 原版 1290 + 本模组 9 条（4 附加 + 4 羊毛 + 1 升级配方）
 ```
 
 ## 项目结构
@@ -154,9 +191,12 @@ armor-addon-neoforge/
 └── src/main/
     ├── java/com/armoraddon/
     │   ├── ArmorAddon.java                         主入口（@Mod）
-    │   └── item/
-    │       ├── ModArmorMaterials.java               盔甲材料 DeferredRegister
-    │       └── ModItems.java                        盔甲物品 DeferredRegister
+    │   ├── item/
+    │   │   ├── ModArmorMaterials.java               盔甲材料 DeferredRegister
+    │   │   └── ModItems.java                        盔甲物品 DeferredRegister
+    │   └── recipe/
+    │       ├── ModRecipes.java                      配方序列化器注册
+    │       └── ArmorUpgradeRecipe.java              铁羊毛盔甲升级配方（继承附魔/损耗耐久）
     └── resources/
         ├── META-INF/neoforge.mods.toml
         ├── assets/armor_addon/                      贴图、模型、语言文件

@@ -82,6 +82,39 @@ public final class ModArmorMaterials {
 					// 击退抗性同皮革。
 					0.0F));
 
+	/**
+	 * 铁羊毛盔甲材料：羊毛盔甲与原版铁盔甲的升级版本。
+	 *
+	 * <ul>
+	 *   <li>护甲值 = 原版铁盔甲 + 1（头盔 3 / 胸甲 7 / 护腿 6 / 靴子 3）；</li>
+	 *   <li>韧性继承羊毛盔甲，为 2.0；</li>
+	 *   <li>耐久倍率 18，恰好是铁盔甲（15）的 +20%。</li>
+	 * </ul>
+	 *
+	 * <p>其余属性沿用铁盔甲：附魔亲和度 9、铁砧修复材料为铁锭、铁甲穿戴音效。</p>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> IRON_WOOL = ARMOR_MATERIALS.register(
+			"iron_wool",
+			() -> new ArmorMaterial(
+					// 原版铁盔甲（2 / 6 / 5 / 2）各 +1。
+					Map.of(
+							ArmorItem.Type.HELMET, 3,
+							ArmorItem.Type.CHESTPLATE, 7,
+							ArmorItem.Type.LEGGINGS, 6,
+							ArmorItem.Type.BOOTS, 3),
+					// 附魔亲和度沿用铁盔甲。
+					9,
+					// 穿戴音效沿用铁盔甲。
+					SoundEvents.ARMOR_EQUIP_IRON,
+					// 铁砧修复材料：铁锭。
+					() -> Ingredient.of(Items.IRON_INGOT),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "iron_wool"), "", false)),
+					// 韧性继承羊毛盔甲。
+					2.0F,
+					// 击退抗性沿用铁盔甲。
+					0.0F));
+
 	private ModArmorMaterials() {
 	}
 

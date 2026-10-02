@@ -11,6 +11,9 @@ build/
 bin/
 run/
 
+# ModMind 工具元数据
+.modmind/
+
 # OS
 .DS_Store
 Thumbs.db

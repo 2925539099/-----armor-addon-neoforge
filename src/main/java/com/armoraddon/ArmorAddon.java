@@ -2,6 +2,7 @@ package com.armoraddon;
 
 import com.armoraddon.item.ModArmorMaterials;
 import com.armoraddon.item.ModItems;
+import com.armoraddon.recipe.ModRecipes;
 
 import net.minecraft.world.item.CreativeModeTabs;
 
@@ -16,7 +17,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 盔甲附加（Armor Addon）—— NeoForge 版主入口。
  *
- * <p>注册两套盔甲材料（附加盔甲、羊毛盔甲）与对应的八个盔甲部件，
+ * <p>注册三套盔甲材料（附加盔甲、羊毛盔甲、铁羊毛盔甲）与对应的十二个盔甲部件，
  * 并把它们加入创造模式「战斗」物品栏。</p>
  */
 @Mod(ArmorAddon.MOD_ID)
@@ -28,10 +29,12 @@ public final class ArmorAddon {
 		// 盔甲材料必须先于使用它的盔甲物品注册。
 		ModArmorMaterials.register(modEventBus);
 		ModItems.register(modEventBus);
+		// 铁羊毛盔甲的升级配方。
+		ModRecipes.register(modEventBus);
 
 		modEventBus.addListener(this::addCreativeTabItems);
 
-		LOGGER.info("[盔甲附加] NeoForge 版模组已加载，附加盔甲与羊毛盔甲已注册。");
+		LOGGER.info("[盔甲附加] NeoForge 版模组已加载，附加盔甲、羊毛盔甲与铁羊毛盔甲已注册。");
 	}
 
 	private void addCreativeTabItems(BuildCreativeModeTabContentsEvent event) {
@@ -45,6 +48,11 @@ public final class ArmorAddon {
 			event.accept(ModItems.WOOL_CHESTPLATE);
 			event.accept(ModItems.WOOL_LEGGINGS);
 			event.accept(ModItems.WOOL_BOOTS);
+
+			event.accept(ModItems.IRON_WOOL_HELMET);
+			event.accept(ModItems.IRON_WOOL_CHESTPLATE);
+			event.accept(ModItems.IRON_WOOL_LEGGINGS);
+			event.accept(ModItems.IRON_WOOL_BOOTS);
 		}
 	}
 }

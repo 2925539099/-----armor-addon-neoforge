@@ -7,7 +7,8 @@
   - textures/models/armor/{set}_layer_2.png                      盔甲层 2 (护腿, 64x32)
   - icon.png                                                     模组图标 (128x128)
 
-set 取值：addon（附加盔甲，冰钢蓝）、wool（羊毛盔甲，暖白毛线）。
+set 取值：addon（附加盔甲，冰钢蓝）、wool（羊毛盔甲，暖白毛线）、
+iron_wool（铁羊毛盔甲，钢灰毛线，羊毛盔甲与铁盔甲的升级版本）。
 
 用法: python generate_textures.py
 """
@@ -41,6 +42,14 @@ WOOL_PALETTE = {
     "M": (233, 231, 223, 255),
     "L": (253, 252, 249, 255),
     "S": (198, 195, 185, 255),
+}
+
+# ---- 铁羊毛盔甲：羊毛盔甲的编织质感 + 铁甲的钢灰配色 ----
+IRON_WOOL_PALETTE = {
+    "D": (62, 66, 74, 255),
+    "M": (176, 180, 188, 255),
+    "L": (226, 229, 234, 255),
+    "S": (128, 132, 140, 255),
 }
 
 ICON_SIZE = 16
@@ -125,6 +134,7 @@ SHAPES = {
 SETS = {
     "addon": (ADDON_PALETTE, False),
     "wool": (WOOL_PALETTE, True),
+    "iron_wool": (IRON_WOOL_PALETTE, True),
 }
 
 
