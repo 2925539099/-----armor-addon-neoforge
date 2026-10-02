@@ -48,6 +48,26 @@ Fabric 版见同级目录 `armor-addon/`。
 | 击退抗性 | 0.0 | 0.0（相同） |
 | 修复材料 | 皮革 | **羊毛（`minecraft:wool` 标签，任意颜色）** |
 
+#### 羊毛靴子的额外特性
+
+羊毛靴子（`armor_addon:wool_boots`）在羊毛护甲属性之外还有两个特性，**仅此一件**：
+
+- **可以在细雪上行走** —— 与原版皮革靴子一样不会陷进细雪
+  （覆盖 NeoForge 在 `Item` 上的 `canWalkOnPowderedSnow` 扩展方法，
+  其默认实现只对 `minecraft:leather_boots` 返回 true）。
+- **移动时不会被幽匿感测体 / 坚守者探测到** —— 屏蔽下列三种振动，
+  与原版**蹲行**屏蔽的那组完全一致（`GameEventTags.IGNORE_VIBRATIONS_SNEAKING`）：
+
+  | 振动 | 对应行为 |
+  | --- | --- |
+  | `STEP` | 行走 / 奔跑的脚步 |
+  | `SWIM` | 游泳 |
+  | `HIT_GROUND` | 跳跃落地 |
+
+  实现方式是监听 NeoForge 的 `VanillaGameEvent` 并取消以上事件
+  （钩子在 `ServerLevel#gameEvent`，取消后振动不会派发给附近监听者）。
+  放置方块、攻击、交互等**其它**动作仍会正常发出振动。
+
 ### 铁质内衬甲（材料 `armor_addon:iron_wool`）
 
 羊毛盔甲与原版铁盔甲的升级版本：在工作台里用**对应的铁盔甲 + 羊毛盔甲 + 1 个锁链**合成，
@@ -195,6 +215,8 @@ armor-addon-neoforge/
     │   └── item/
     │       ├── ModArmorMaterials.java               盔甲材料 DeferredRegister
     │       ├── ModItems.java                        盔甲物品 DeferredRegister
+    │       ├── WoolBootsItem.java                   羊毛靴子（可在细雪上行走）
+    │       ├── WoolBootsEvents.java                 羊毛靴子移动静音
     │       └── ModCraftingEvents.java               铁质内衬甲合成继承/耐久同步
     └── resources/
         ├── META-INF/neoforge.mods.toml

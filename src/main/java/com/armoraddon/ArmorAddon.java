@@ -3,6 +3,7 @@ package com.armoraddon;
 import com.armoraddon.item.ModArmorMaterials;
 import com.armoraddon.item.ModCraftingEvents;
 import com.armoraddon.item.ModItems;
+import com.armoraddon.item.WoolBootsEvents;
 
 import net.minecraft.world.item.CreativeModeTabs;
 
@@ -34,6 +35,8 @@ public final class ArmorAddon {
 		modEventBus.addListener(this::addCreativeTabItems);
 		// 铁质内衬甲合成时继承铁盔甲附魔 / 名称并同步损耗耐久。
 		NeoForge.EVENT_BUS.addListener(ModCraftingEvents::onItemCrafted);
+		// 羊毛靴子：移动时不被幽匿感测体 / 坚守者探测到。
+		NeoForge.EVENT_BUS.addListener(WoolBootsEvents::onVanillaGameEvent);
 
 		LOGGER.info("[盔甲附加] NeoForge 版模组已加载，附加盔甲、羊毛盔甲与铁质内衬甲已注册。");
 	}

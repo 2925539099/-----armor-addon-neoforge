@@ -46,8 +46,15 @@ public final class ModItems {
 			registerArmor("wool_chestplate", ModArmorMaterials.WOOL, ArmorItem.Type.CHESTPLATE, WOOL_DURABILITY_MULTIPLIER);
 	public static final DeferredItem<Item> WOOL_LEGGINGS =
 			registerArmor("wool_leggings", ModArmorMaterials.WOOL, ArmorItem.Type.LEGGINGS, WOOL_DURABILITY_MULTIPLIER);
+	/**
+	 * 羊毛靴子使用自定义物品类：可在细雪上行走，并且移动时不会被
+	 * 幽匿感测体 / 坚守者探测到（见 {@link WoolBootsItem}、{@link WoolBootsEvents}）。
+	 */
 	public static final DeferredItem<Item> WOOL_BOOTS =
-			registerArmor("wool_boots", ModArmorMaterials.WOOL, ArmorItem.Type.BOOTS, WOOL_DURABILITY_MULTIPLIER);
+			ITEMS.register("wool_boots", () -> new WoolBootsItem(
+					ModArmorMaterials.WOOL,
+					new Item.Properties().durability(
+							ArmorItem.Type.BOOTS.getDurability(WOOL_DURABILITY_MULTIPLIER))));
 
 	// ---- 铁羊毛盔甲（羊毛盔甲 + 铁盔甲的升级版本）----
 	public static final DeferredItem<Item> IRON_WOOL_HELMET =
