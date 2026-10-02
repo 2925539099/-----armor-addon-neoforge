@@ -52,6 +52,14 @@ IRON_WOOL_PALETTE = {
     "S": (128, 132, 140, 255),
 }
 
+# ---- 金羊毛盔甲：羊毛盔甲的编织质感 + 金甲的暖金配色 ----
+GOLD_WOOL_PALETTE = {
+    "D": (118, 78, 14, 255),
+    "M": (236, 189, 63, 255),
+    "L": (253, 235, 150, 255),
+    "S": (188, 134, 30, 255),
+}
+
 ICON_SIZE = 16
 
 # ---- 16x16 物品图标底稿（'.' 透明）；两套盔甲共用轮廓，仅换色与质感 ----
@@ -135,6 +143,7 @@ SETS = {
     "addon": (ADDON_PALETTE, False),
     "wool": (WOOL_PALETTE, True),
     "iron_wool": (IRON_WOOL_PALETTE, True),
+    "gold_wool": (GOLD_WOOL_PALETTE, True),
 }
 
 

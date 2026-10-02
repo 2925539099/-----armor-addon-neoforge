@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 盔甲附加（Armor Addon）—— NeoForge 版主入口。
  *
- * <p>注册三套盔甲材料（附加盔甲、羊毛盔甲、铁质内衬甲）与对应的十二个盔甲部件，
+ * <p>注册四套盔甲材料（附加盔甲、羊毛盔甲、铁质内衬甲、金质内衬甲）与对应的十六个盔甲部件，
  * 并把它们加入创造模式「战斗」物品栏。</p>
  */
 @Mod(ArmorAddon.MOD_ID)
@@ -38,7 +38,7 @@ public final class ArmorAddon {
 		// 羊毛靴子：移动时不被幽匿感测体 / 坚守者探测到。
 		NeoForge.EVENT_BUS.addListener(WoolBootsEvents::onVanillaGameEvent);
 
-		LOGGER.info("[盔甲附加] NeoForge 版模组已加载，附加盔甲、羊毛盔甲与铁质内衬甲已注册。");
+		LOGGER.info("[盔甲附加] NeoForge 版模组已加载，附加盔甲、羊毛盔甲、铁质内衬甲与金质内衬甲已注册。");
 	}
 
 	private void addCreativeTabItems(BuildCreativeModeTabContentsEvent event) {
@@ -57,6 +57,11 @@ public final class ArmorAddon {
 			event.accept(ModItems.IRON_WOOL_CHESTPLATE);
 			event.accept(ModItems.IRON_WOOL_LEGGINGS);
 			event.accept(ModItems.IRON_WOOL_BOOTS);
+
+			event.accept(ModItems.GOLD_WOOL_HELMET);
+			event.accept(ModItems.GOLD_WOOL_CHESTPLATE);
+			event.accept(ModItems.GOLD_WOOL_LEGGINGS);
+			event.accept(ModItems.GOLD_WOOL_BOOTS);
 		}
 	}
 }

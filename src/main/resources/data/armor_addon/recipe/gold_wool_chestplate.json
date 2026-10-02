@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:golden_chestplate"
+    },
+    {
+      "item": "armor_addon:wool_chestplate"
+    },
+    {
+      "item": "minecraft:chain"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "armor_addon:gold_wool_chestplate"
+  }
+}

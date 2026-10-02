@@ -115,6 +115,40 @@ public final class ModArmorMaterials {
 					// 击退抗性沿用铁盔甲。
 					0.0F));
 
+	/**
+	 * 金质内衬甲材料：羊毛盔甲与原版金盔甲的升级版本。
+	 *
+	 * <ul>
+	 *   <li>护甲值 = 原版金盔甲 + 1（头盔 3 / 胸甲 6 / 护腿 4 / 靴子 2）；</li>
+	 *   <li>韧性继承羊毛盔甲，为 2.0；</li>
+	 *   <li>附魔亲和度、音效、修复材料与击退抗性均沿用金盔甲。</li>
+	 * </ul>
+	 *
+	 * <p>耐久不在这里设置：金盔甲的耐久倍率是 7，×1.2 不是整数，
+	 * 因此改为在注册物品时逐件写入「金盔甲耐久 +20%」的具体数值。</p>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GOLD_WOOL = ARMOR_MATERIALS.register(
+			"gold_wool",
+			() -> new ArmorMaterial(
+					// 原版金盔甲（2 / 5 / 3 / 1）各 +1。
+					Map.of(
+							ArmorItem.Type.HELMET, 3,
+							ArmorItem.Type.CHESTPLATE, 6,
+							ArmorItem.Type.LEGGINGS, 4,
+							ArmorItem.Type.BOOTS, 2),
+					// 附魔亲和度沿用金盔甲。
+					25,
+					// 穿戴音效沿用金盔甲。
+					SoundEvents.ARMOR_EQUIP_GOLD,
+					// 铁砧修复材料：金锭。
+					() -> Ingredient.of(Items.GOLD_INGOT),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "gold_wool"), "", false)),
+					// 韧性继承羊毛盔甲。
+					2.0F,
+					// 击退抗性沿用金盔甲。
+					0.0F));
+
 	private ModArmorMaterials() {
 	}
 
