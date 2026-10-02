@@ -186,6 +186,42 @@ public final class ModArmorMaterials {
 					// 击退抗性沿用钻石盔甲。
 					0.0F));
 
+	/**
+	 * 合金内衬甲材料：羊毛盔甲与原版下界合金盔甲的升级版本。
+	 *
+	 * <p>沿用钻石内衬甲的逻辑（韧性 = 基甲韧性 + 羊毛韧性），因此：</p>
+	 *
+	 * <ul>
+	 *   <li>护甲值 = 原版下界合金盔甲 + 1（头盔 4 / 胸甲 9 / 护腿 7 / 靴子 4）；</li>
+	 *   <li>韧性 = 3.0（下界合金）+ 2.0（羊毛盔甲）= <strong>5.0</strong>；</li>
+	 *   <li>附魔亲和度、音效、修复材料沿用下界合金盔甲；</li>
+	 *   <li>击退抗性沿用下界合金盔甲的 0.1（目前唯一带击退抗性的一套）。</li>
+	 * </ul>
+	 *
+	 * <p>耐久同样逐件写入具体值：下界合金倍率 37，×1.2 = 44.4 不是整数。</p>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> NETHERITE_WOOL = ARMOR_MATERIALS.register(
+			"netherite_wool",
+			() -> new ArmorMaterial(
+					// 原版下界合金盔甲（3 / 8 / 6 / 3）各 +1。
+					Map.of(
+							ArmorItem.Type.HELMET, 4,
+							ArmorItem.Type.CHESTPLATE, 9,
+							ArmorItem.Type.LEGGINGS, 7,
+							ArmorItem.Type.BOOTS, 4),
+					// 附魔亲和度沿用下界合金盔甲。
+					15,
+					// 穿戴音效沿用下界合金盔甲。
+					SoundEvents.ARMOR_EQUIP_NETHERITE,
+					// 铁砧修复材料：下界合金锭。
+					() -> Ingredient.of(Items.NETHERITE_INGOT),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "netherite_wool"), "", false)),
+					// 韧性 = 下界合金 3.0 + 羊毛盔甲 2.0。
+					5.0F,
+					// 击退抗性沿用下界合金盔甲。
+					0.1F));
+
 	private ModArmorMaterials() {
 	}
 

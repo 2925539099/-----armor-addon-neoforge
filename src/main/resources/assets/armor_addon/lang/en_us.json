@@ -18,5 +18,9 @@
   "item.armor_addon.diamond_wool_helmet": "Diamond-lined Helmet",
   "item.armor_addon.diamond_wool_chestplate": "Diamond-lined Chestplate",
   "item.armor_addon.diamond_wool_leggings": "Diamond-lined Leggings",
-  "item.armor_addon.diamond_wool_boots": "Diamond-lined Boots"
+  "item.armor_addon.diamond_wool_boots": "Diamond-lined Boots",
+  "item.armor_addon.netherite_wool_helmet": "Alloy-lined Helmet",
+  "item.armor_addon.netherite_wool_chestplate": "Alloy-lined Chestplate",
+  "item.armor_addon.netherite_wool_leggings": "Alloy-lined Leggings",
+  "item.armor_addon.netherite_wool_boots": "Alloy-lined Boots"
 }

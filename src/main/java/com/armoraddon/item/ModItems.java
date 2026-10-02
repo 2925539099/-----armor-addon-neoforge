@@ -105,6 +105,26 @@ public final class ModItems {
 			registerArmorWithDurability("diamond_wool_boots", ModArmorMaterials.DIAMOND_WOOL,
 					ArmorItem.Type.BOOTS, 514);
 
+	// ---- 合金内衬甲（羊毛盔甲 + 下界合金盔甲的升级版本）----
+	// 下界合金盔甲的耐久倍率是 37，×1.2 = 44.4 不是整数，同样逐件写具体值：
+	//   头盔 11×37=407 → 488
+	//   胸甲 16×37=592 → 710
+	//   护腿 15×37=555 → 666
+	//   靴子 13×37=481 → 577
+	// 另外与原版下界合金盔甲一致带抗火（物品不会被火烧毁）。
+	public static final DeferredItem<Item> NETHERITE_WOOL_HELMET =
+			registerFireResistantArmor("netherite_wool_helmet", ModArmorMaterials.NETHERITE_WOOL,
+					ArmorItem.Type.HELMET, 488);
+	public static final DeferredItem<Item> NETHERITE_WOOL_CHESTPLATE =
+			registerFireResistantArmor("netherite_wool_chestplate", ModArmorMaterials.NETHERITE_WOOL,
+					ArmorItem.Type.CHESTPLATE, 710);
+	public static final DeferredItem<Item> NETHERITE_WOOL_LEGGINGS =
+			registerFireResistantArmor("netherite_wool_leggings", ModArmorMaterials.NETHERITE_WOOL,
+					ArmorItem.Type.LEGGINGS, 666);
+	public static final DeferredItem<Item> NETHERITE_WOOL_BOOTS =
+			registerFireResistantArmor("netherite_wool_boots", ModArmorMaterials.NETHERITE_WOOL,
+					ArmorItem.Type.BOOTS, 577);
+
 	private ModItems() {
 	}
 
@@ -127,5 +147,14 @@ public final class ModItems {
 				material,
 				type,
 				new Item.Properties().durability(durability)));
+	}
+
+	/** 同上，但额外带抗火 —— 与原版下界合金盔甲一致。 */
+	private static DeferredItem<Item> registerFireResistantArmor(String name, Holder<ArmorMaterial> material,
+																 ArmorItem.Type type, int durability) {
+		return ITEMS.register(name, () -> new ArmorItem(
+				material,
+				type,
+				new Item.Properties().fireResistant().durability(durability)));
 	}
 }

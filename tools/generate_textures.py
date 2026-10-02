@@ -68,6 +68,14 @@ DIAMOND_WOOL_PALETTE = {
     "S": (52, 164, 162, 255),
 }
 
+# ---- 合金内衬甲：羊毛盔甲的编织质感 + 下界合金的暗紫灰配色 ----
+NETHERITE_WOOL_PALETTE = {
+    "D": (46, 38, 44, 255),
+    "M": (102, 92, 100, 255),
+    "L": (162, 152, 160, 255),
+    "S": (68, 60, 66, 255),
+}
+
 ICON_SIZE = 16
 
 # ---- 16x16 物品图标底稿（'.' 透明）；两套盔甲共用轮廓，仅换色与质感 ----
@@ -153,6 +161,7 @@ SETS = {
     "iron_wool": (IRON_WOOL_PALETTE, True),
     "gold_wool": (GOLD_WOOL_PALETTE, True),
     "diamond_wool": (DIAMOND_WOOL_PALETTE, True),
+    "netherite_wool": (NETHERITE_WOOL_PALETTE, True),
 }
 
 
