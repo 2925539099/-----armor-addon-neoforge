@@ -86,6 +86,25 @@ public final class ModItems {
 			registerArmorWithDurability("gold_wool_boots", ModArmorMaterials.GOLD_WOOL,
 					ArmorItem.Type.BOOTS, 109);
 
+	// ---- 钻石内衬甲（羊毛盔甲 + 钻石盔甲的升级版本）----
+	// 钻石盔甲的耐久倍率是 33，×1.2 = 39.6 不是整数，同样逐件写具体值：
+	//   头盔 11×33=363 → 435
+	//   胸甲 16×33=528 → 633
+	//   护腿 15×33=495 → 594
+	//   靴子 13×33=429 → 514
+	public static final DeferredItem<Item> DIAMOND_WOOL_HELMET =
+			registerArmorWithDurability("diamond_wool_helmet", ModArmorMaterials.DIAMOND_WOOL,
+					ArmorItem.Type.HELMET, 435);
+	public static final DeferredItem<Item> DIAMOND_WOOL_CHESTPLATE =
+			registerArmorWithDurability("diamond_wool_chestplate", ModArmorMaterials.DIAMOND_WOOL,
+					ArmorItem.Type.CHESTPLATE, 633);
+	public static final DeferredItem<Item> DIAMOND_WOOL_LEGGINGS =
+			registerArmorWithDurability("diamond_wool_leggings", ModArmorMaterials.DIAMOND_WOOL,
+					ArmorItem.Type.LEGGINGS, 594);
+	public static final DeferredItem<Item> DIAMOND_WOOL_BOOTS =
+			registerArmorWithDurability("diamond_wool_boots", ModArmorMaterials.DIAMOND_WOOL,
+					ArmorItem.Type.BOOTS, 514);
+
 	private ModItems() {
 	}
 

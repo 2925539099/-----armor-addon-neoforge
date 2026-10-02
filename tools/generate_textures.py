@@ -60,6 +60,14 @@ GOLD_WOOL_PALETTE = {
     "S": (188, 134, 30, 255),
 }
 
+# ---- 钻石羊毛盔甲：羊毛盔甲的编织质感 + 钻石甲的青蓝配色 ----
+DIAMOND_WOOL_PALETTE = {
+    "D": (24, 102, 108, 255),
+    "M": (92, 224, 216, 255),
+    "L": (188, 248, 243, 255),
+    "S": (52, 164, 162, 255),
+}
+
 ICON_SIZE = 16
 
 # ---- 16x16 物品图标底稿（'.' 透明）；两套盔甲共用轮廓，仅换色与质感 ----
@@ -144,6 +152,7 @@ SETS = {
     "wool": (WOOL_PALETTE, True),
     "iron_wool": (IRON_WOOL_PALETTE, True),
     "gold_wool": (GOLD_WOOL_PALETTE, True),
+    "diamond_wool": (DIAMOND_WOOL_PALETTE, True),
 }
 
 

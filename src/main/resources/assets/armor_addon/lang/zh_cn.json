@@ -14,5 +14,9 @@
   "item.armor_addon.gold_wool_helmet": "金质内衬头盔",
   "item.armor_addon.gold_wool_chestplate": "金质内衬胸甲",
   "item.armor_addon.gold_wool_leggings": "金质内衬护腿",
-  "item.armor_addon.gold_wool_boots": "金质内衬靴子"
+  "item.armor_addon.gold_wool_boots": "金质内衬靴子",
+  "item.armor_addon.diamond_wool_helmet": "钻石内衬头盔",
+  "item.armor_addon.diamond_wool_chestplate": "钻石内衬胸甲",
+  "item.armor_addon.diamond_wool_leggings": "钻石内衬护腿",
+  "item.armor_addon.diamond_wool_boots": "钻石内衬靴子"
 }

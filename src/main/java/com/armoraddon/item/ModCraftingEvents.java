@@ -57,7 +57,7 @@ public final class ModCraftingEvents {
 		}
 	}
 
-	/** 产物是否为内衬盔甲（铁质或金质）。 */
+	/** 产物是否为内衬盔甲（铁质 / 金质 / 钻石）。 */
 	private static boolean isLiningArmor(Item item) {
 		return item == ModItems.IRON_WOOL_HELMET.get()
 				|| item == ModItems.IRON_WOOL_CHESTPLATE.get()
@@ -66,10 +66,14 @@ public final class ModCraftingEvents {
 				|| item == ModItems.GOLD_WOOL_HELMET.get()
 				|| item == ModItems.GOLD_WOOL_CHESTPLATE.get()
 				|| item == ModItems.GOLD_WOOL_LEGGINGS.get()
-				|| item == ModItems.GOLD_WOOL_BOOTS.get();
+				|| item == ModItems.GOLD_WOOL_BOOTS.get()
+				|| item == ModItems.DIAMOND_WOOL_HELMET.get()
+				|| item == ModItems.DIAMOND_WOOL_CHESTPLATE.get()
+				|| item == ModItems.DIAMOND_WOOL_LEGGINGS.get()
+				|| item == ModItems.DIAMOND_WOOL_BOOTS.get();
 	}
 
-	/** 在合成网格里找出作为材料的原版铁盔甲或金盔甲。 */
+	/** 在合成网格里找出作为材料的原版铁 / 金 / 钻石盔甲。 */
 	private static ItemStack findBaseArmor(Container grid) {
 		for (int i = 0; i < grid.getContainerSize(); i++) {
 			ItemStack stack = grid.getItem(i);
@@ -81,7 +85,11 @@ public final class ModCraftingEvents {
 					|| item == Items.GOLDEN_HELMET
 					|| item == Items.GOLDEN_CHESTPLATE
 					|| item == Items.GOLDEN_LEGGINGS
-					|| item == Items.GOLDEN_BOOTS) {
+					|| item == Items.GOLDEN_BOOTS
+					|| item == Items.DIAMOND_HELMET
+					|| item == Items.DIAMOND_CHESTPLATE
+					|| item == Items.DIAMOND_LEGGINGS
+					|| item == Items.DIAMOND_BOOTS) {
 				return stack;
 			}
 		}

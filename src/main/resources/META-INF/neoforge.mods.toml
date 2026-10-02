@@ -6,7 +6,7 @@ license = "MIT"
 modId = "armor_addon"
 version = "${version}"
 displayName = "盔甲附加"
-description = '''为游戏增添四套可合成的盔甲：防御与钻石相当的「附加盔甲」、耐久翻倍且带韧性的「羊毛盔甲」，以及由铁盔甲 / 金盔甲与羊毛盔甲加锁链升级而来的「铁质内衬甲」与「金质内衬甲」。'''
+description = '''为游戏增添五套可合成的盔甲：防御与钻石相当的「附加盔甲」、耐久翻倍且带韧性的「羊毛盔甲」，以及由铁 / 金 / 钻石盔甲与羊毛盔甲加锁链升级而来的「铁质内衬甲」「金质内衬甲」「钻石内衬甲」。'''
 
 [[dependencies.armor_addon]]
 modId = "neoforge"

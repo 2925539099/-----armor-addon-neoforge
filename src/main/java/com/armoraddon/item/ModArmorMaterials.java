@@ -149,6 +149,43 @@ public final class ModArmorMaterials {
 					// 击退抗性沿用金盔甲。
 					0.0F));
 
+	/**
+	 * 钻石内衬甲材料：羊毛盔甲与原版钻石盔甲的升级版本。
+	 *
+	 * <p><strong>与前两套的唯一区别是韧性</strong>：原版钻石盔甲本身就带 2.0 韧性，
+	 * 这里按「钻石甲的韧性 + 羊毛盔甲的韧性」叠加，得到 <strong>4.0</strong>。</p>
+	 *
+	 * <ul>
+	 *   <li>护甲值 = 原版钻石盔甲 + 1（头盔 4 / 胸甲 9 / 护腿 7 / 靴子 4）；</li>
+	 *   <li>韧性 = 2.0（钻石甲）+ 2.0（羊毛盔甲）= 4.0；</li>
+	 *   <li>附魔亲和度、音效、修复材料与击退抗性均沿用钻石盔甲。</li>
+	 * </ul>
+	 *
+	 * <p>耐久同样不按倍率换算：钻石甲倍率 33，×1.2 = 39.6 不是整数，
+	 * 因此与金质内衬甲一样在注册物品时逐件写入具体数值。</p>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIAMOND_WOOL = ARMOR_MATERIALS.register(
+			"diamond_wool",
+			() -> new ArmorMaterial(
+					// 原版钻石盔甲（3 / 8 / 6 / 3）各 +1。
+					Map.of(
+							ArmorItem.Type.HELMET, 4,
+							ArmorItem.Type.CHESTPLATE, 9,
+							ArmorItem.Type.LEGGINGS, 7,
+							ArmorItem.Type.BOOTS, 4),
+					// 附魔亲和度沿用钻石盔甲。
+					10,
+					// 穿戴音效沿用钻石盔甲。
+					SoundEvents.ARMOR_EQUIP_DIAMOND,
+					// 铁砧修复材料：钻石。
+					() -> Ingredient.of(Items.DIAMOND),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "diamond_wool"), "", false)),
+					// 韧性 = 钻石甲 2.0 + 羊毛盔甲 2.0（本套与前两套的唯一区别）。
+					4.0F,
+					// 击退抗性沿用钻石盔甲。
+					0.0F));
+
 	private ModArmorMaterials() {
 	}
 
