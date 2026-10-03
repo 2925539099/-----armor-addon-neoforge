@@ -329,7 +329,7 @@ armor-addon-neoforge/
     │       ├── ModItems.java                        盔甲物品 DeferredRegister
     │       ├── WoolBootsItem.java                   羊毛靴子（可在细雪上行走）
     │       ├── WoolBootsEvents.java                 羊毛靴子移动静音
-    │       └── ModCraftingEvents.java               铁质内衬甲合成继承/耐久同步
+    │       └── ModCraftingEvents.java               内衬甲合成继承附魔/名称/损耗耐久
     └── resources/
         ├── META-INF/neoforge.mods.toml
         ├── assets/armor_addon/                      贴图、模型、语言文件
@@ -341,6 +341,58 @@ armor-addon-neoforge/
 ```bash
 python tools/generate_textures.py
 ```
+
+## 与 MCreator 协作（本地开发用）
+
+本机装了 MCreator，工作区在 `<MCreator-workspace>
+为了能用 MCreator 的贴图编辑器直接改本模组的贴图，该工作区的两个贴图目录被做成了
+指向本项目的 **目录联接（junction）**：
+
+| MCreator 侧 | 指向 |
+| --- | --- |
+| `...\assets\armor_attachment\textures\item` | `src/main/resources/assets/armor_addon/textures/item` |
+| `...\assets\armor_attachment\textures\models\armor` | `src/main/resources/assets/armor_addon/textures/models/armor` |
+
+因为是联接而不是复制，**两边是同一份文件**：在 MCreator 里画完保存，项目里的 PNG
+立刻就变了，不需要任何同步操作；反过来在这里新增贴图，MCreator 也马上能看到。
+
+MCreator 的盔甲元素按 `<registry_name>_layer_1.png` / `<registry_name>_layer_2.png`
+找穿戴贴图、按 `<name>.png` 找物品图标，所以只要把元素的 registry name 取成与套装名
+一致（`addon` / `wool` / `iron_wool` / `gold_wool` / `diamond_wool` / `netherite_wool`），
+它就会直接命中本模组已有的贴图。该元素还支持自定义 3D 模型
+（`helmetModelName` / `bodyModelName` / `leggingsModelName` / `bootsModelName`
+配合 `*ModelPart` 映射）。
+
+### 注意：贴图目录里混有 MCreator 的旧贴图
+
+建立联接时，MCreator 工作区原有的那些贴图（`ymkj_*`、`ce_shi__*`、`ym.png`、
+`tokui.png`，共 14 个）被移进了本项目的贴图目录——否则它们会随目录一起消失，
+MCreator 里那两个旧盔甲元素就会失效。
+
+这些文件**不属于本模组**，因此：
+
+- 已写入 `.gitignore`，不纳入版本控制；
+- 已在 `build.gradle` 的 `processResources` 中排除，不会混进成品 jar。
+
+### 配套脚本（在工作区根目录，即本项目的上一级）
+
+| 脚本 | 用途 |
+| --- | --- |
+| `sync-from-mcreator.bat` | 把 MCreator 侧改过的贴图同步回项目（有了联接后其实用不上，留作保险）；加 `-Build` 可顺带重新构建 |
+| `restore-build-config.bat` | 万一 MCreator 覆盖了 `build.gradle` / `gradle.properties`，一键还原镜像构建配置并校验 |
+
+> `.ps1` 需要 UTF-8 BOM 才能被 Windows PowerShell 5.1 正确解析，`.bat` 里已用
+> `-ExecutionPolicy Bypass` 绕过脚本执行策略，双击即可。
+
+### 如何解除联接
+
+```powershell
+# 先删联接（不会影响项目里的真实文件），再把旧贴图从项目里清掉
+Remove-Item "<MCreator工作区>\src\main\resources\assets\armor_attachment\textures\item" -Force
+Remove-Item "<MCreator工作区>\src\main\resources\assets\armor_attachment\textures\models\armor" -Force
+```
+
+改完记得把 `.gitignore` 与 `build.gradle` 里的排除规则一并去掉。
 
 ## 许可
 
