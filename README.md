@@ -345,13 +345,13 @@ python tools/generate_textures.py
 ## 与 MCreator 协作（本地开发用）
 
 本机装了 MCreator，工作区在 `<MCreator-workspace>
-为了能用 MCreator 的贴图编辑器直接改本模组的贴图，该工作区的两个贴图目录被做成了
-指向本项目的 **目录联接（junction）**：
+（modid 与项目一致，同为 `armor_addon`）。为了能用 MCreator 的贴图编辑器直接改本模组的
+贴图，该工作区的两个贴图目录被做成了指向本项目的 **目录联接（junction）**：
 
 | MCreator 侧 | 指向 |
 | --- | --- |
-| `...\assets\armor_attachment\textures\item` | `src/main/resources/assets/armor_addon/textures/item` |
-| `...\assets\armor_attachment\textures\models\armor` | `src/main/resources/assets/armor_addon/textures/models/armor` |
+| `...\assets\armor_addon\textures\item` | `src/main/resources/assets/armor_addon/textures/item` |
+| `...\assets\armor_addon\textures\models\armor` | `src/main/resources/assets/armor_addon/textures/models/armor` |
 
 因为是联接而不是复制，**两边是同一份文件**：在 MCreator 里画完保存，项目里的 PNG
 立刻就变了，不需要任何同步操作；反过来在这里新增贴图，MCreator 也马上能看到。
@@ -361,13 +361,18 @@ MCreator 的盔甲元素按 `<registry_name>_layer_1.png` / `<registry_name>_lay
 一致（`addon` / `wool` / `iron_wool` / `gold_wool` / `diamond_wool` / `netherite_wool`），
 它就会直接命中本模组已有的贴图。该元素还支持自定义 3D 模型
 （`helmetModelName` / `bodyModelName` / `leggingsModelName` / `bootsModelName`
-配合 `*ModelPart` 映射）。
+配合 `*ModelPart` 映射），模型类放在工作区的 `models/mojmap-1.21.x/` 下。
+
+> 该工作区的骨架是从 MCreator 自带的 `generator-1.21.1.zip` 里的
+> `neoforge-1.21.1/workspacebase/` 模板铺出来的，`settings.gradle` 已改为可达的
+> ForgeCDN 镜像（本机连不上 `maven.neoforged.net`）。
+> 如果 MCreator 拒绝打开它，用 MCreator 向导新建工作区（modid 填 `armor_addon`），
+> 然后跑 `relink-mcreator.bat` 重建联接即可。
 
 ### 注意：贴图目录里混有 MCreator 的旧贴图
 
-建立联接时，MCreator 工作区原有的那些贴图（`ymkj_*`、`ce_shi__*`、`ym.png`、
-`tokui.png`，共 14 个）被移进了本项目的贴图目录——否则它们会随目录一起消失，
-MCreator 里那两个旧盔甲元素就会失效。
+早先建立联接时，旧工作区 `armor_attachment` 里的那些贴图（`ymkj_*`、`ce_shi__*`、
+`ym.png`、`tokui.png`，共 14 个）被移进了本项目的贴图目录——否则它们会随目录一起消失。
 
 这些文件**不属于本模组**，因此：
 
@@ -378,7 +383,8 @@ MCreator 里那两个旧盔甲元素就会失效。
 
 | 脚本 | 用途 |
 | --- | --- |
-| `sync-from-mcreator.bat` | 把 MCreator 侧改过的贴图同步回项目（有了联接后其实用不上，留作保险）；加 `-Build` 可顺带重新构建 |
+| `relink-mcreator.bat` | 把 MCreator 工作区的贴图目录重新联接到本项目。用向导重建了工作区、或工作区换路径时跑它（可传 `-Workspace "路径"`） |
+| `sync-from-mcreator.bat` | 把 MCreator 侧改过的贴图同步回项目（有联接时用不上，留作保险）；加 `-Build` 可顺带重新构建 |
 | `restore-build-config.bat` | 万一 MCreator 覆盖了 `build.gradle` / `gradle.properties`，一键还原镜像构建配置并校验 |
 
 > `.ps1` 需要 UTF-8 BOM 才能被 Windows PowerShell 5.1 正确解析，`.bat` 里已用
@@ -387,12 +393,21 @@ MCreator 里那两个旧盔甲元素就会失效。
 ### 如何解除联接
 
 ```powershell
-# 先删联接（不会影响项目里的真实文件），再把旧贴图从项目里清掉
-Remove-Item "<MCreator工作区>\src\main\resources\assets\armor_attachment\textures\item" -Force
-Remove-Item "<MCreator工作区>\src\main\resources\assets\armor_attachment\textures\models\armor" -Force
+# 只删联接，不会影响项目里的真实文件
+Remove-Item "<MCreator工作区>\src\main\resources\assets\armor_addon\textures\item" -Force
+Remove-Item "<MCreator工作区>\src\main\resources\assets\armor_addon\textures\models\armor" -Force
 ```
 
 改完记得把 `.gitignore` 与 `build.gradle` 里的排除规则一并去掉。
+
+### 重要：MCreator 工作区与本项目是两套代码
+
+MCreator 生成的 Java 代码在它自己的 `net.mcreator.armoraddon` 包里，与本项目的
+`com.armoraddon` 相互独立；**贴图是两者之间的唯一接口**。所以：
+
+- 改**贴图** → 直接生效，本模组重新构建后即体现；
+- 改 **3D 模型** → 模型类生成在 MCreator 工作区里，要让本模组真正用上，
+  还需要把模型代码移植进 `com.armoraddon`。
 
 ## 许可
 
