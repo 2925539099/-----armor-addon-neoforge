@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
-"""生成「盔甲附加」模组的贴图资源。
+"""补齐缺失的贴图，并刷新模组图标。
 
-产物（两套盔甲 + 模组图标）：
-  - textures/item/{set}_{helmet,chestplate,leggings,boots}.png   物品图标 (16x16)
-  - textures/models/armor/{set}_layer_1.png                      盔甲层 1 (头盔/胸甲/靴子, 64x32)
-  - textures/models/armor/{set}_layer_2.png                      盔甲层 2 (护腿, 64x32)
-  - icon.png                                                     模组图标 (128x128)
+⚠️ 历史说明（重要）
+-------------------
+本脚本原本用 ASCII 像素画生成全部六套盔甲贴图。但现在六套贴图都以
+**用户手绘的 iron_wool 为母版**，由 `recolor_handdrawn.py` 重新上色生成，
+风格远好于本脚本的 4 色平面图。
 
-set 取值：addon（附加盔甲，冰钢蓝）、wool（羊毛盔甲，暖白毛线）、
-iron_wool（铁羊毛盔甲，钢灰毛线，羊毛盔甲与铁盔甲的升级版本）。
+因此本脚本默认**绝不覆盖已存在的贴图**：
+  - 只补齐缺失的文件（正常情况下一个都不会生成）；
+  - 总是用当前的 `addon_helmet.png` 刷新 `icon.png`。
 
-用法: python generate_textures.py
+想强行用旧的 ASCII 模板重建全部贴图，需要显式加 `--force`
+—— 那会覆盖掉所有手绘版本，只会用于把仓库恢复到早期状态。
+
+用法:
+    python generate_textures.py            # 安全：补齐缺失 + 刷新图标
+    python generate_textures.py --force    # 危险：用旧模板重建全部贴图
 """
 
+import argparse
 from pathlib import Path
 
 from PIL import Image
@@ -256,36 +263,56 @@ def build_layer_2(palette):
 
 
 def main():
+    ap = argparse.ArgumentParser(description="补齐缺失贴图并刷新模组图标")
+    ap.add_argument("--force", action="store_true",
+                    help="用旧的 ASCII 模板覆盖重建全部贴图（会毁掉手绘版本）")
+    args = ap.parse_args()
+
     item_dir = ASSETS / "textures" / "item"
     armor_dir = ASSETS / "textures" / "models" / "armor"
     item_dir.mkdir(parents=True, exist_ok=True)
     armor_dir.mkdir(parents=True, exist_ok=True)
 
-    first_helmet = None
+    if not args.force:
+        print("安全模式：不覆盖已存在的贴图（加 --force 才会用旧模板重建）\n")
+
+    made = 0
+    skipped = 0
 
     for set_name, (palette, textured) in SETS.items():
         for piece, rows in SHAPES.items():
+            dst = item_dir / f"{set_name}_{piece}.png"
+            if dst.exists() and not args.force:
+                skipped += 1
+                continue
             img = art_to_image(rows, palette)
             if textured:
                 weave(img, palette)
-            img.save(item_dir / f"{set_name}_{piece}.png")
-            if first_helmet is None and piece == "helmet":
-                first_helmet = img
-        print(f"  [{set_name}] 物品图标 4 个")
+            img.save(dst)
+            made += 1
 
-        layer_1 = build_layer_1(palette)
-        layer_2 = build_layer_2(palette)
-        if textured:
-            weave(layer_1, palette)
-            weave(layer_2, palette)
-        layer_1.save(armor_dir / f"{set_name}_layer_1.png")
-        layer_2.save(armor_dir / f"{set_name}_layer_2.png")
-        print(f"  [{set_name}] 盔甲层 1 / 2")
+        for layer_no, builder in ((1, build_layer_1), (2, build_layer_2)):
+            dst = armor_dir / f"{set_name}_layer_{layer_no}.png"
+            if dst.exists() and not args.force:
+                skipped += 1
+                continue
+            layer = builder(palette)
+            if textured:
+                weave(layer, palette)
+            layer.save(dst)
+            made += 1
 
-    assert first_helmet is not None
-    first_helmet.resize((128, 128), Image.NEAREST).save(ASSETS / "icon.png")
-    print("  模组图标 icon.png")
-    print(f"\n贴图已输出到: {ASSETS}")
+    print(f"新生成 {made} 个贴图，跳过已存在 {skipped} 个")
+
+    # 模组图标始终用「当前」的 addon_helmet 刷新，而不是本次新生成的
+    helmet = item_dir / "addon_helmet.png"
+    if helmet.exists():
+        Image.open(helmet).resize((128, 128), Image.NEAREST).save(ASSETS / "icon.png")
+        print("模组图标 icon.png 已按当前 addon_helmet.png 刷新")
+    else:
+        print("!! 找不到 addon_helmet.png，未刷新模组图标")
+
+    print(f"\n贴图目录: {ASSETS}")
 
 
 if __name__ == "__main__":
