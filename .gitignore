@@ -14,15 +14,18 @@ run/
 # ModMind 工具元数据
 .modmind/
 
-# MCreator 协作：MCreator 工作区通过目录联接共享了贴图目录，
-# 以下文件属于 MCreator 里的旧元素（ymkj / ce_shi__ 等），不属于本模组，
-# 因此不纳入版本控制；build.gradle 里也把它们排除出成品 jar。
+# MCreator 协作：MCreator 工作区的贴图目录通过目录联接指向本项目，
+# 因此 MCreator 生成的贴图会直接落到这里。它们不属于本模组，
+# 不纳入版本控制；build.gradle 里也把它们排除出成品 jar。
 # 详见 README「与 MCreator 协作」一节。
-src/main/resources/assets/armor_addon/textures/item/ce_shi__*.png
+#
+# 规则说明：本项目自己的贴图名从不含连续两个下划线，而 MCreator 把中文名
+# 转拼音后一律追加 "__"（如 yang_mao_kui_jia__body.png），故用 *__*.png 兜住。
+# 早期手写命名的那批（ymkj_* 等）没有双下划线，单独列出。
+src/main/resources/assets/armor_addon/textures/**/*__*.png
 src/main/resources/assets/armor_addon/textures/item/ymkj_*.png
 src/main/resources/assets/armor_addon/textures/item/ym.png
 src/main/resources/assets/armor_addon/textures/item/tokui.png
-src/main/resources/assets/armor_addon/textures/models/armor/ce_shi__*.png
 src/main/resources/assets/armor_addon/textures/models/armor/ymkj_*.png
 
 # OS
