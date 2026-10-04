@@ -7,7 +7,11 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-    archivesName = project.archives_base_name
+    // 产物文件名用中文：盔甲附加-1.0.0.jar
+    //
+    // 注意：这个值不能放进 gradle.properties —— Java 的 Properties 按
+    // ISO-8859-1 读取，中文会变成乱码；build.gradle 是 UTF-8 源码，不受影响。
+    archivesName = '盔甲附加'
 }
 
 // 仓库镜像 + Mojang 下载重写代理（详见脚本内注释）

@@ -237,7 +237,7 @@ Fabric 版见同级目录 `armor-addon/`。
 ## 安装
 
 1. 安装 Minecraft 1.21.1 的 **NeoForge**（21.1.244 或更高的 21.1.x）。
-2. 将 `build/libs/armor-addon-neoforge-1.0.0.jar` 放入 `.minecraft/mods/`。
+2. 将 `build/libs/盔甲附加-1.0.0.jar` 放入 `.minecraft/mods/`。
 
 **不需要**额外的前置模组。
 
@@ -253,7 +253,7 @@ gradlew.bat build
 ./gradlew build
 ```
 
-产物位于 `build/libs/armor-addon-neoforge-1.0.0.jar`。
+产物位于 `build/libs/盔甲附加-1.0.0.jar`（文件名在 `build.gradle` 的 `base.archivesName` 里设置）。
 
 > 本次构建使用的是工作区内的 Gradle 缓存目录 `../.gradle-home`。想复用它以免重新下载：
 >

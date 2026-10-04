@@ -5,7 +5,7 @@ license = "MIT"
 [[mods]]
 modId = "armor_addon"
 version = "${version}"
-displayName = "盔甲附加"
+displayName = "盔甲附加 (Armor Addon)"
 description = '''为游戏增添五套可合成的盔甲：耐久翻倍且带韧性的「羊毛盔甲」，以及由铁 / 金 / 钻石 / 下界合金盔甲与羊毛盔甲加锁链升级而来的「铁质内衬甲」「金质内衬甲」「钻石内衬甲」「合金内衬甲」。'''
 
 [[dependencies.armor_addon]]
