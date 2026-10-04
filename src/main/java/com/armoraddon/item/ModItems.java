@@ -22,10 +22,10 @@ public final class ModItems {
 	public static final int WOOL_DURABILITY_MULTIPLIER = 10;
 
 	/**
-	 * 铁羊毛盔甲的耐久度倍率：原版铁盔甲为 15，此处 18 正好是 +20%
+	 * 铁质内衬盔甲的耐久度倍率：原版铁盔甲为 15，此处 18 正好是 +20%
 	 * （头盔 198 / 胸甲 288 / 护腿 270 / 靴子 234）。
 	 */
-	public static final int IRON_WOOL_DURABILITY_MULTIPLIER = 18;
+	public static final int IRON_LINING_DURABILITY_MULTIPLIER = 18;
 
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ArmorAddon.MOD_ID);
 
@@ -56,15 +56,15 @@ public final class ModItems {
 					new Item.Properties().durability(
 							ArmorItem.Type.BOOTS.getDurability(WOOL_DURABILITY_MULTIPLIER))));
 
-	// ---- 铁羊毛盔甲（羊毛盔甲 + 铁盔甲的升级版本）----
-	public static final DeferredItem<Item> IRON_WOOL_HELMET =
-			registerArmor("iron_wool_helmet", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.HELMET, IRON_WOOL_DURABILITY_MULTIPLIER);
-	public static final DeferredItem<Item> IRON_WOOL_CHESTPLATE =
-			registerArmor("iron_wool_chestplate", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.CHESTPLATE, IRON_WOOL_DURABILITY_MULTIPLIER);
-	public static final DeferredItem<Item> IRON_WOOL_LEGGINGS =
-			registerArmor("iron_wool_leggings", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.LEGGINGS, IRON_WOOL_DURABILITY_MULTIPLIER);
-	public static final DeferredItem<Item> IRON_WOOL_BOOTS =
-			registerArmor("iron_wool_boots", ModArmorMaterials.IRON_WOOL, ArmorItem.Type.BOOTS, IRON_WOOL_DURABILITY_MULTIPLIER);
+	// ---- 铁质内衬盔甲（羊毛盔甲 + 铁盔甲的升级版本）----
+	public static final DeferredItem<Item> IRON_LINING_HELMET =
+			registerArmor("iron_lining_helmet", ModArmorMaterials.IRON_LINING, ArmorItem.Type.HELMET, IRON_LINING_DURABILITY_MULTIPLIER);
+	public static final DeferredItem<Item> IRON_LINING_CHESTPLATE =
+			registerArmor("iron_lining_chestplate", ModArmorMaterials.IRON_LINING, ArmorItem.Type.CHESTPLATE, IRON_LINING_DURABILITY_MULTIPLIER);
+	public static final DeferredItem<Item> IRON_LINING_LEGGINGS =
+			registerArmor("iron_lining_leggings", ModArmorMaterials.IRON_LINING, ArmorItem.Type.LEGGINGS, IRON_LINING_DURABILITY_MULTIPLIER);
+	public static final DeferredItem<Item> IRON_LINING_BOOTS =
+			registerArmor("iron_lining_boots", ModArmorMaterials.IRON_LINING, ArmorItem.Type.BOOTS, IRON_LINING_DURABILITY_MULTIPLIER);
 
 	// ---- 金质内衬甲（羊毛盔甲 + 金盔甲的升级版本）----
 	// 金盔甲的耐久倍率是 7，×1.2 = 8.4 不是整数，所以这里逐件直接写
@@ -73,17 +73,17 @@ public final class ModItems {
 	//   胸甲 16×7=112 → 134
 	//   护腿 15×7=105 → 126
 	//   靴子 13×7=91  → 109
-	public static final DeferredItem<Item> GOLD_WOOL_HELMET =
-			registerArmorWithDurability("gold_wool_helmet", ModArmorMaterials.GOLD_WOOL,
+	public static final DeferredItem<Item> GOLD_LINING_HELMET =
+			registerArmorWithDurability("gold_lining_helmet", ModArmorMaterials.GOLD_LINING,
 					ArmorItem.Type.HELMET, 92);
-	public static final DeferredItem<Item> GOLD_WOOL_CHESTPLATE =
-			registerArmorWithDurability("gold_wool_chestplate", ModArmorMaterials.GOLD_WOOL,
+	public static final DeferredItem<Item> GOLD_LINING_CHESTPLATE =
+			registerArmorWithDurability("gold_lining_chestplate", ModArmorMaterials.GOLD_LINING,
 					ArmorItem.Type.CHESTPLATE, 134);
-	public static final DeferredItem<Item> GOLD_WOOL_LEGGINGS =
-			registerArmorWithDurability("gold_wool_leggings", ModArmorMaterials.GOLD_WOOL,
+	public static final DeferredItem<Item> GOLD_LINING_LEGGINGS =
+			registerArmorWithDurability("gold_lining_leggings", ModArmorMaterials.GOLD_LINING,
 					ArmorItem.Type.LEGGINGS, 126);
-	public static final DeferredItem<Item> GOLD_WOOL_BOOTS =
-			registerArmorWithDurability("gold_wool_boots", ModArmorMaterials.GOLD_WOOL,
+	public static final DeferredItem<Item> GOLD_LINING_BOOTS =
+			registerArmorWithDurability("gold_lining_boots", ModArmorMaterials.GOLD_LINING,
 					ArmorItem.Type.BOOTS, 109);
 
 	// ---- 钻石内衬甲（羊毛盔甲 + 钻石盔甲的升级版本）----
@@ -92,17 +92,17 @@ public final class ModItems {
 	//   胸甲 16×33=528 → 633
 	//   护腿 15×33=495 → 594
 	//   靴子 13×33=429 → 514
-	public static final DeferredItem<Item> DIAMOND_WOOL_HELMET =
-			registerArmorWithDurability("diamond_wool_helmet", ModArmorMaterials.DIAMOND_WOOL,
+	public static final DeferredItem<Item> DIAMOND_LINING_HELMET =
+			registerArmorWithDurability("diamond_lining_helmet", ModArmorMaterials.DIAMOND_LINING,
 					ArmorItem.Type.HELMET, 435);
-	public static final DeferredItem<Item> DIAMOND_WOOL_CHESTPLATE =
-			registerArmorWithDurability("diamond_wool_chestplate", ModArmorMaterials.DIAMOND_WOOL,
+	public static final DeferredItem<Item> DIAMOND_LINING_CHESTPLATE =
+			registerArmorWithDurability("diamond_lining_chestplate", ModArmorMaterials.DIAMOND_LINING,
 					ArmorItem.Type.CHESTPLATE, 633);
-	public static final DeferredItem<Item> DIAMOND_WOOL_LEGGINGS =
-			registerArmorWithDurability("diamond_wool_leggings", ModArmorMaterials.DIAMOND_WOOL,
+	public static final DeferredItem<Item> DIAMOND_LINING_LEGGINGS =
+			registerArmorWithDurability("diamond_lining_leggings", ModArmorMaterials.DIAMOND_LINING,
 					ArmorItem.Type.LEGGINGS, 594);
-	public static final DeferredItem<Item> DIAMOND_WOOL_BOOTS =
-			registerArmorWithDurability("diamond_wool_boots", ModArmorMaterials.DIAMOND_WOOL,
+	public static final DeferredItem<Item> DIAMOND_LINING_BOOTS =
+			registerArmorWithDurability("diamond_lining_boots", ModArmorMaterials.DIAMOND_LINING,
 					ArmorItem.Type.BOOTS, 514);
 
 	// ---- 合金内衬甲（羊毛盔甲 + 下界合金盔甲的升级版本）----
@@ -112,17 +112,17 @@ public final class ModItems {
 	//   护腿 15×37=555 → 666
 	//   靴子 13×37=481 → 577
 	// 另外与原版下界合金盔甲一致带抗火（物品不会被火烧毁）。
-	public static final DeferredItem<Item> NETHERITE_WOOL_HELMET =
-			registerFireResistantArmor("netherite_wool_helmet", ModArmorMaterials.NETHERITE_WOOL,
+	public static final DeferredItem<Item> ALLOY_LINING_HELMET =
+			registerFireResistantArmor("alloy_lining_helmet", ModArmorMaterials.ALLOY_LINING,
 					ArmorItem.Type.HELMET, 488);
-	public static final DeferredItem<Item> NETHERITE_WOOL_CHESTPLATE =
-			registerFireResistantArmor("netherite_wool_chestplate", ModArmorMaterials.NETHERITE_WOOL,
+	public static final DeferredItem<Item> ALLOY_LINING_CHESTPLATE =
+			registerFireResistantArmor("alloy_lining_chestplate", ModArmorMaterials.ALLOY_LINING,
 					ArmorItem.Type.CHESTPLATE, 710);
-	public static final DeferredItem<Item> NETHERITE_WOOL_LEGGINGS =
-			registerFireResistantArmor("netherite_wool_leggings", ModArmorMaterials.NETHERITE_WOOL,
+	public static final DeferredItem<Item> ALLOY_LINING_LEGGINGS =
+			registerFireResistantArmor("alloy_lining_leggings", ModArmorMaterials.ALLOY_LINING,
 					ArmorItem.Type.LEGGINGS, 666);
-	public static final DeferredItem<Item> NETHERITE_WOOL_BOOTS =
-			registerFireResistantArmor("netherite_wool_boots", ModArmorMaterials.NETHERITE_WOOL,
+	public static final DeferredItem<Item> ALLOY_LINING_BOOTS =
+			registerFireResistantArmor("alloy_lining_boots", ModArmorMaterials.ALLOY_LINING,
 					ArmorItem.Type.BOOTS, 577);
 
 	private ModItems() {

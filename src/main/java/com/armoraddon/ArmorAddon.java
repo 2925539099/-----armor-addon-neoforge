@@ -53,25 +53,25 @@ public final class ArmorAddon {
 			event.accept(ModItems.WOOL_LEGGINGS);
 			event.accept(ModItems.WOOL_BOOTS);
 
-			event.accept(ModItems.IRON_WOOL_HELMET);
-			event.accept(ModItems.IRON_WOOL_CHESTPLATE);
-			event.accept(ModItems.IRON_WOOL_LEGGINGS);
-			event.accept(ModItems.IRON_WOOL_BOOTS);
+			event.accept(ModItems.IRON_LINING_HELMET);
+			event.accept(ModItems.IRON_LINING_CHESTPLATE);
+			event.accept(ModItems.IRON_LINING_LEGGINGS);
+			event.accept(ModItems.IRON_LINING_BOOTS);
 
-			event.accept(ModItems.GOLD_WOOL_HELMET);
-			event.accept(ModItems.GOLD_WOOL_CHESTPLATE);
-			event.accept(ModItems.GOLD_WOOL_LEGGINGS);
-			event.accept(ModItems.GOLD_WOOL_BOOTS);
+			event.accept(ModItems.GOLD_LINING_HELMET);
+			event.accept(ModItems.GOLD_LINING_CHESTPLATE);
+			event.accept(ModItems.GOLD_LINING_LEGGINGS);
+			event.accept(ModItems.GOLD_LINING_BOOTS);
 
-			event.accept(ModItems.DIAMOND_WOOL_HELMET);
-			event.accept(ModItems.DIAMOND_WOOL_CHESTPLATE);
-			event.accept(ModItems.DIAMOND_WOOL_LEGGINGS);
-			event.accept(ModItems.DIAMOND_WOOL_BOOTS);
+			event.accept(ModItems.DIAMOND_LINING_HELMET);
+			event.accept(ModItems.DIAMOND_LINING_CHESTPLATE);
+			event.accept(ModItems.DIAMOND_LINING_LEGGINGS);
+			event.accept(ModItems.DIAMOND_LINING_BOOTS);
 
-			event.accept(ModItems.NETHERITE_WOOL_HELMET);
-			event.accept(ModItems.NETHERITE_WOOL_CHESTPLATE);
-			event.accept(ModItems.NETHERITE_WOOL_LEGGINGS);
-			event.accept(ModItems.NETHERITE_WOOL_BOOTS);
+			event.accept(ModItems.ALLOY_LINING_HELMET);
+			event.accept(ModItems.ALLOY_LINING_CHESTPLATE);
+			event.accept(ModItems.ALLOY_LINING_LEGGINGS);
+			event.accept(ModItems.ALLOY_LINING_BOOTS);
 		}
 	}
 }

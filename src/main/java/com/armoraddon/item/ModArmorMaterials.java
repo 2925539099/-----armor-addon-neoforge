@@ -83,7 +83,7 @@ public final class ModArmorMaterials {
 					0.0F));
 
 	/**
-	 * 铁羊毛盔甲材料：羊毛盔甲与原版铁盔甲的升级版本。
+	 * 铁质内衬盔甲材料：羊毛盔甲与原版铁盔甲的升级版本。
 	 *
 	 * <ul>
 	 *   <li>护甲值 = 原版铁盔甲 + 1（头盔 3 / 胸甲 7 / 护腿 6 / 靴子 3）；</li>
@@ -93,8 +93,8 @@ public final class ModArmorMaterials {
 	 *
 	 * <p>其余属性沿用铁盔甲：附魔亲和度 9、铁砧修复材料为铁锭、铁甲穿戴音效。</p>
 	 */
-	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> IRON_WOOL = ARMOR_MATERIALS.register(
-			"iron_wool",
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> IRON_LINING = ARMOR_MATERIALS.register(
+			"iron_lining",
 			() -> new ArmorMaterial(
 					// 原版铁盔甲（2 / 6 / 5 / 2）各 +1。
 					Map.of(
@@ -109,7 +109,7 @@ public final class ModArmorMaterials {
 					// 铁砧修复材料：铁锭。
 					() -> Ingredient.of(Items.IRON_INGOT),
 					List.of(new ArmorMaterial.Layer(
-							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "iron_wool"), "", false)),
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "iron_lining"), "", false)),
 					// 韧性继承羊毛盔甲。
 					2.0F,
 					// 击退抗性沿用铁盔甲。
@@ -127,8 +127,8 @@ public final class ModArmorMaterials {
 	 * <p>耐久不在这里设置：金盔甲的耐久倍率是 7，×1.2 不是整数，
 	 * 因此改为在注册物品时逐件写入「金盔甲耐久 +20%」的具体数值。</p>
 	 */
-	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GOLD_WOOL = ARMOR_MATERIALS.register(
-			"gold_wool",
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GOLD_LINING = ARMOR_MATERIALS.register(
+			"gold_lining",
 			() -> new ArmorMaterial(
 					// 原版金盔甲（2 / 5 / 3 / 1）各 +1。
 					Map.of(
@@ -143,7 +143,7 @@ public final class ModArmorMaterials {
 					// 铁砧修复材料：金锭。
 					() -> Ingredient.of(Items.GOLD_INGOT),
 					List.of(new ArmorMaterial.Layer(
-							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "gold_wool"), "", false)),
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "gold_lining"), "", false)),
 					// 韧性继承羊毛盔甲。
 					2.0F,
 					// 击退抗性沿用金盔甲。
@@ -164,8 +164,8 @@ public final class ModArmorMaterials {
 	 * <p>耐久同样不按倍率换算：钻石甲倍率 33，×1.2 = 39.6 不是整数，
 	 * 因此与金质内衬甲一样在注册物品时逐件写入具体数值。</p>
 	 */
-	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIAMOND_WOOL = ARMOR_MATERIALS.register(
-			"diamond_wool",
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIAMOND_LINING = ARMOR_MATERIALS.register(
+			"diamond_lining",
 			() -> new ArmorMaterial(
 					// 原版钻石盔甲（3 / 8 / 6 / 3）各 +1。
 					Map.of(
@@ -180,7 +180,7 @@ public final class ModArmorMaterials {
 					// 铁砧修复材料：钻石。
 					() -> Ingredient.of(Items.DIAMOND),
 					List.of(new ArmorMaterial.Layer(
-							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "diamond_wool"), "", false)),
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "diamond_lining"), "", false)),
 					// 韧性 = 钻石甲 2.0 + 羊毛盔甲 2.0（本套与前两套的唯一区别）。
 					4.0F,
 					// 击退抗性沿用钻石盔甲。
@@ -200,8 +200,8 @@ public final class ModArmorMaterials {
 	 *
 	 * <p>耐久同样逐件写入具体值：下界合金倍率 37，×1.2 = 44.4 不是整数。</p>
 	 */
-	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> NETHERITE_WOOL = ARMOR_MATERIALS.register(
-			"netherite_wool",
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ALLOY_LINING = ARMOR_MATERIALS.register(
+			"alloy_lining",
 			() -> new ArmorMaterial(
 					// 原版下界合金盔甲（3 / 8 / 6 / 3）各 +1。
 					Map.of(
@@ -216,7 +216,7 @@ public final class ModArmorMaterials {
 					// 铁砧修复材料：下界合金锭。
 					() -> Ingredient.of(Items.NETHERITE_INGOT),
 					List.of(new ArmorMaterial.Layer(
-							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "netherite_wool"), "", false)),
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "alloy_lining"), "", false)),
 					// 韧性 = 下界合金 3.0 + 羊毛盔甲 2.0。
 					5.0F,
 					// 击退抗性沿用下界合金盔甲。

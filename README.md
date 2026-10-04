@@ -68,7 +68,7 @@ Fabric 版见同级目录 `armor-addon/`。
   （钩子在 `ServerLevel#gameEvent`，取消后振动不会派发给附近监听者）。
   放置方块、攻击、交互等**其它**动作仍会正常发出振动。
 
-### 铁质内衬甲（材料 `armor_addon:iron_wool`）
+### 铁质内衬甲（材料 `armor_addon:iron_lining`）
 
 羊毛盔甲与原版铁盔甲的升级版本：在工作台里用**对应的铁盔甲 + 羊毛盔甲 + 1 个锁链**合成，
 继承铁盔甲的附魔与自定义名称，并把铁盔甲已损失的耐久原样同步到新盔甲上。
@@ -76,10 +76,10 @@ Fabric 版见同级目录 `armor-addon/`。
 
 | 物品 | ID | 防御 | 耐久 |
 | --- | --- | --- | --- |
-| 铁质内衬头盔 | `armor_addon:iron_wool_helmet` | 3 | 198 |
-| 铁质内衬胸甲 | `armor_addon:iron_wool_chestplate` | 7 | 288 |
-| 铁质内衬护腿 | `armor_addon:iron_wool_leggings` | 6 | 270 |
-| 铁质内衬靴子 | `armor_addon:iron_wool_boots` | 3 | 234 |
+| 铁质内衬头盔 | `armor_addon:iron_lining_helmet` | 3 | 198 |
+| 铁质内衬胸甲 | `armor_addon:iron_lining_chestplate` | 7 | 288 |
+| 铁质内衬护腿 | `armor_addon:iron_lining_leggings` | 6 | 270 |
+| 铁质内衬靴子 | `armor_addon:iron_lining_boots` | 3 | 234 |
 
 与原版铁盔甲的对照：
 
@@ -93,17 +93,17 @@ Fabric 版见同级目录 `armor-addon/`。
 | 修复材料 | 铁锭 | 铁锭（相同） |
 | 耐久倍率 | 15 | **18** |
 
-### 金质内衬甲（材料 `armor_addon:gold_wool`）
+### 金质内衬甲（材料 `armor_addon:gold_lining`）
 
 金盔甲版的「内衬甲」，规则与铁质内衬甲完全一致：工作台里用**对应的金盔甲 + 羊毛盔甲 +
 1 个锁链**合成，继承金盔甲的附魔与自定义名称并同步已损失的耐久，同样**不可染色**。
 
 | 物品 | ID | 防御 | 耐久 |
 | --- | --- | --- | --- |
-| 金质内衬头盔 | `armor_addon:gold_wool_helmet` | 3 | 92 |
-| 金质内衬胸甲 | `armor_addon:gold_wool_chestplate` | 6 | 134 |
-| 金质内衬护腿 | `armor_addon:gold_wool_leggings` | 4 | 126 |
-| 金质内衬靴子 | `armor_addon:gold_wool_boots` | 2 | 109 |
+| 金质内衬头盔 | `armor_addon:gold_lining_helmet` | 3 | 92 |
+| 金质内衬胸甲 | `armor_addon:gold_lining_chestplate` | 6 | 134 |
+| 金质内衬护腿 | `armor_addon:gold_lining_leggings` | 4 | 126 |
+| 金质内衬靴子 | `armor_addon:gold_lining_boots` | 2 | 109 |
 
 与原版金盔甲的对照：
 
@@ -119,7 +119,7 @@ Fabric 版见同级目录 `armor-addon/`。
 > 金盔甲的耐久倍率是 7，×1.2 = 8.4 不是整数，所以金质内衬甲不按倍率换算，
 > 而是逐件直接写入「金盔甲耐久 +20%」的具体数值。
 
-### 钻石内衬甲（材料 `armor_addon:diamond_wool`）
+### 钻石内衬甲（材料 `armor_addon:diamond_lining`）
 
 钻石盔甲版的「内衬甲」，规则与铁 / 金质内衬甲相同，**唯一区别是韧性**：
 
@@ -128,10 +128,10 @@ Fabric 版见同级目录 `armor-addon/`。
 
 | 物品 | ID | 防御 | 耐久 |
 | --- | --- | --- | --- |
-| 钻石内衬头盔 | `armor_addon:diamond_wool_helmet` | 4 | 435 |
-| 钻石内衬胸甲 | `armor_addon:diamond_wool_chestplate` | 9 | 633 |
-| 钻石内衬护腿 | `armor_addon:diamond_wool_leggings` | 7 | 594 |
-| 钻石内衬靴子 | `armor_addon:diamond_wool_boots` | 4 | 514 |
+| 钻石内衬头盔 | `armor_addon:diamond_lining_helmet` | 4 | 435 |
+| 钻石内衬胸甲 | `armor_addon:diamond_lining_chestplate` | 9 | 633 |
+| 钻石内衬护腿 | `armor_addon:diamond_lining_leggings` | 7 | 594 |
+| 钻石内衬靴子 | `armor_addon:diamond_lining_boots` | 4 | 514 |
 
 与原版钻石盔甲的对照：
 
@@ -146,17 +146,17 @@ Fabric 版见同级目录 `armor-addon/`。
 
 > 钻石甲的耐久倍率是 33，×1.2 = 39.6 不是整数，因此与金质内衬甲一样逐件写入具体值。
 
-### 合金内衬甲（材料 `armor_addon:netherite_wool`）
+### 合金内衬甲（材料 `armor_addon:alloy_lining`）
 
 下界合金盔甲版的「内衬甲」，沿用钻石内衬甲的逻辑（韧性 = 基甲韧性 + 羊毛韧性），
 所以韧性为 **3.0 + 2.0 = 5.0**。这也是目前唯一带击退抗性的一套（沿用下界合金的 0.1）。
 
 | 物品 | ID | 防御 | 耐久 |
 | --- | --- | --- | --- |
-| 合金内衬头盔 | `armor_addon:netherite_wool_helmet` | 4 | 488 |
-| 合金内衬胸甲 | `armor_addon:netherite_wool_chestplate` | 9 | 710 |
-| 合金内衬护腿 | `armor_addon:netherite_wool_leggings` | 7 | 666 |
-| 合金内衬靴子 | `armor_addon:netherite_wool_boots` | 4 | 577 |
+| 合金内衬头盔 | `armor_addon:alloy_lining_helmet` | 4 | 488 |
+| 合金内衬胸甲 | `armor_addon:alloy_lining_chestplate` | 9 | 710 |
+| 合金内衬护腿 | `armor_addon:alloy_lining_leggings` | 7 | 666 |
+| 合金内衬靴子 | `armor_addon:alloy_lining_boots` | 4 | 577 |
 
 与原版下界合金盔甲的对照：
 
@@ -377,7 +377,7 @@ python tools/generate_textures.py
 
 MCreator 的盔甲元素按 `<registry_name>_layer_1.png` / `<registry_name>_layer_2.png`
 找穿戴贴图、按 `<name>.png` 找物品图标，所以只要把元素的 registry name 取成与套装名
-一致（`addon` / `wool` / `iron_wool` / `gold_wool` / `diamond_wool` / `netherite_wool`），
+一致（`addon` / `wool` / `iron_lining` / `gold_lining` / `diamond_lining` / `alloy_lining`），
 它就会直接命中本模组已有的贴图。该元素还支持自定义 3D 模型
 （`helmetModelName` / `bodyModelName` / `leggingsModelName` / `bootsModelName`
 配合 `*ModelPart` 映射），模型类放在工作区的 `models/mojmap-1.21.x/` 下。

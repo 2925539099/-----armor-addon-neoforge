@@ -4,7 +4,7 @@
 ⚠️ 历史说明（重要）
 -------------------
 本脚本原本用 ASCII 像素画生成全部六套盔甲贴图。但现在六套贴图都以
-**用户手绘的 iron_wool 为母版**，由 `recolor_handdrawn.py` 重新上色生成，
+**用户手绘的 iron_lining 为母版**，由 `recolor_handdrawn.py` 重新上色生成，
 风格远好于本脚本的 4 色平面图。
 
 因此本脚本默认**绝不覆盖已存在的贴图**：
@@ -51,24 +51,24 @@ WOOL_PALETTE = {
     "S": (198, 195, 185, 255),
 }
 
-# ---- 铁羊毛盔甲：羊毛盔甲的编织质感 + 铁甲的钢灰配色 ----
-IRON_WOOL_PALETTE = {
+# ---- 铁质内衬盔甲：羊毛盔甲的编织质感 + 铁甲的钢灰配色 ----
+IRON_LINING_PALETTE = {
     "D": (62, 66, 74, 255),
     "M": (176, 180, 188, 255),
     "L": (226, 229, 234, 255),
     "S": (128, 132, 140, 255),
 }
 
-# ---- 金羊毛盔甲：羊毛盔甲的编织质感 + 金甲的暖金配色 ----
-GOLD_WOOL_PALETTE = {
+# ---- 金质内衬盔甲：羊毛盔甲的编织质感 + 金甲的暖金配色 ----
+GOLD_LINING_PALETTE = {
     "D": (118, 78, 14, 255),
     "M": (236, 189, 63, 255),
     "L": (253, 235, 150, 255),
     "S": (188, 134, 30, 255),
 }
 
-# ---- 钻石羊毛盔甲：羊毛盔甲的编织质感 + 钻石甲的青蓝配色 ----
-DIAMOND_WOOL_PALETTE = {
+# ---- 钻石内衬盔甲：羊毛盔甲的编织质感 + 钻石甲的青蓝配色 ----
+DIAMOND_LINING_PALETTE = {
     "D": (24, 102, 108, 255),
     "M": (92, 224, 216, 255),
     "L": (188, 248, 243, 255),
@@ -76,7 +76,7 @@ DIAMOND_WOOL_PALETTE = {
 }
 
 # ---- 合金内衬甲：羊毛盔甲的编织质感 + 下界合金的暗紫灰配色 ----
-NETHERITE_WOOL_PALETTE = {
+ALLOY_LINING_PALETTE = {
     "D": (46, 38, 44, 255),
     "M": (102, 92, 100, 255),
     "L": (162, 152, 160, 255),
@@ -165,10 +165,10 @@ SHAPES = {
 SETS = {
     "addon": (ADDON_PALETTE, False),
     "wool": (WOOL_PALETTE, True),
-    "iron_wool": (IRON_WOOL_PALETTE, True),
-    "gold_wool": (GOLD_WOOL_PALETTE, True),
-    "diamond_wool": (DIAMOND_WOOL_PALETTE, True),
-    "netherite_wool": (NETHERITE_WOOL_PALETTE, True),
+    "iron_lining": (IRON_LINING_PALETTE, True),
+    "gold_lining": (GOLD_LINING_PALETTE, True),
+    "diamond_lining": (DIAMOND_LINING_PALETTE, True),
+    "alloy_lining": (ALLOY_LINING_PALETTE, True),
 }
 
 

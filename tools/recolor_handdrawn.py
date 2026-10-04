@@ -29,7 +29,7 @@ ARMOR_DIR = ASSETS / "textures" / "models" / "armor"
 OUT_DIR = PROJ / "tools" / "recolor_out"
 
 # 结构母版：用户手绘的铁质内衬甲
-SOURCE_SET = "iron_wool"
+SOURCE_SET = "iron_lining"
 
 # 目标色相的明暗阶梯：从最暗的描边到最亮的高光。
 # 每项为 (锚点亮度占比, (R, G, B))，占比 0=最暗、1=最亮。
@@ -53,7 +53,7 @@ RAMPS = {
         (1.00, (253, 252, 249)),
     ],
     # 内衬甲系列：沿用各自的调色板作为锚点
-    "iron_wool": [
+    "iron_lining": [
         (0.00, (25, 25, 25)),
         (0.12, (45, 45, 45)),
         (0.30, (107, 107, 107)),
@@ -61,7 +61,7 @@ RAMPS = {
         (0.80, (216, 216, 216)),
         (1.00, (255, 255, 255)),
     ],
-    "gold_wool": [
+    "gold_lining": [
         (0.00, (74, 48, 8)),
         (0.12, (118, 78, 14)),
         (0.30, (188, 134, 30)),
@@ -69,7 +69,7 @@ RAMPS = {
         (0.80, (247, 214, 108)),
         (1.00, (253, 235, 150)),
     ],
-    "diamond_wool": [
+    "diamond_lining": [
         (0.00, (14, 64, 68)),
         (0.12, (24, 102, 108)),
         (0.30, (52, 164, 162)),
@@ -77,7 +77,7 @@ RAMPS = {
         (0.80, (140, 236, 230)),
         (1.00, (188, 248, 243)),
     ],
-    "netherite_wool": [
+    "alloy_lining": [
         (0.00, (26, 22, 26)),
         (0.12, (46, 38, 44)),
         (0.30, (68, 60, 66)),
@@ -95,9 +95,9 @@ RAMPS = {
 GENERATE = {
     "addon":           ("icons", "layers"),
     "wool":            ("icons", "layers"),
-    "gold_wool":       ("icons",),
-    "diamond_wool":    ("icons",),
-    "netherite_wool":  ("icons",),
+    "gold_lining":       ("icons",),
+    "diamond_lining":    ("icons",),
+    "alloy_lining":  ("icons",),
 }
 
 PIECES = ["helmet", "chestplate", "leggings", "boots"]

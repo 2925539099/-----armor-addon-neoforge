@@ -59,22 +59,22 @@ public final class ModCraftingEvents {
 
 	/** 产物是否为内衬盔甲（铁质 / 金质 / 钻石 / 合金）。 */
 	private static boolean isLiningArmor(Item item) {
-		return item == ModItems.IRON_WOOL_HELMET.get()
-				|| item == ModItems.IRON_WOOL_CHESTPLATE.get()
-				|| item == ModItems.IRON_WOOL_LEGGINGS.get()
-				|| item == ModItems.IRON_WOOL_BOOTS.get()
-				|| item == ModItems.GOLD_WOOL_HELMET.get()
-				|| item == ModItems.GOLD_WOOL_CHESTPLATE.get()
-				|| item == ModItems.GOLD_WOOL_LEGGINGS.get()
-				|| item == ModItems.GOLD_WOOL_BOOTS.get()
-				|| item == ModItems.DIAMOND_WOOL_HELMET.get()
-				|| item == ModItems.DIAMOND_WOOL_CHESTPLATE.get()
-				|| item == ModItems.DIAMOND_WOOL_LEGGINGS.get()
-				|| item == ModItems.DIAMOND_WOOL_BOOTS.get()
-				|| item == ModItems.NETHERITE_WOOL_HELMET.get()
-				|| item == ModItems.NETHERITE_WOOL_CHESTPLATE.get()
-				|| item == ModItems.NETHERITE_WOOL_LEGGINGS.get()
-				|| item == ModItems.NETHERITE_WOOL_BOOTS.get();
+		return item == ModItems.IRON_LINING_HELMET.get()
+				|| item == ModItems.IRON_LINING_CHESTPLATE.get()
+				|| item == ModItems.IRON_LINING_LEGGINGS.get()
+				|| item == ModItems.IRON_LINING_BOOTS.get()
+				|| item == ModItems.GOLD_LINING_HELMET.get()
+				|| item == ModItems.GOLD_LINING_CHESTPLATE.get()
+				|| item == ModItems.GOLD_LINING_LEGGINGS.get()
+				|| item == ModItems.GOLD_LINING_BOOTS.get()
+				|| item == ModItems.DIAMOND_LINING_HELMET.get()
+				|| item == ModItems.DIAMOND_LINING_CHESTPLATE.get()
+				|| item == ModItems.DIAMOND_LINING_LEGGINGS.get()
+				|| item == ModItems.DIAMOND_LINING_BOOTS.get()
+				|| item == ModItems.ALLOY_LINING_HELMET.get()
+				|| item == ModItems.ALLOY_LINING_CHESTPLATE.get()
+				|| item == ModItems.ALLOY_LINING_LEGGINGS.get()
+				|| item == ModItems.ALLOY_LINING_BOOTS.get();
 	}
 
 	/** 在合成网格里找出作为材料的原版铁 / 金 / 钻石 / 下界合金盔甲。 */
