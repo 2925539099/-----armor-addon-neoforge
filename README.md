@@ -1,30 +1,12 @@
 # 盔甲附加 (Armor Addon) — NeoForge 版
 
-Minecraft **1.21.1** / **NeoForge** 模组，新增六套共 24 件可合成的盔甲。
+Minecraft **1.21.1** / **NeoForge** 模组，新增五套共 20 件可合成的盔甲。
 
 Fabric 版见同级目录 `armor-addon/`。
 
 ## 内容
 
-新增三套共 12 件盔甲。
-
-### 附加盔甲（材料 `armor_addon:addon`）
-
-| 物品 | ID | 防御 | 耐久 |
-| --- | --- | --- | --- |
-| 附加头盔 | `armor_addon:addon_helmet` | 3 | 363 |
-| 附加胸甲 | `armor_addon:addon_chestplate` | 8 | 528 |
-| 附加护腿 | `armor_addon:addon_leggings` | 6 | 495 |
-| 附加靴子 | `armor_addon:addon_boots` | 3 | 429 |
-
-材料属性（与钻石盔甲同级，但附魔亲和度更高）：
-
-- 防御点：3 / 8 / 6 / 3
-- 韧性：2.0
-- 击退抗性：0.1
-- 附魔亲和度：15（钻石为 10，皮革为 15）
-- 修复材料：铁锭
-- 耐久倍率：33（同钻石）
+新增五套共 20 件盔甲。
 
 ### 羊毛盔甲（材料 `armor_addon:wool`）
 
@@ -176,15 +158,6 @@ Fabric 版见同级目录 `armor-addon/`。
 
 所有配方都在**工作台**上合成，形状与原版盔甲一致。
 
-**附加盔甲** —— `X` 为铁锭，`E` 为绿宝石（放在护心位置）：
-
-| 部位 | 配方 |
-| --- | --- |
-| 头盔 | `XEX` / `X X` |
-| 胸甲 | `X X` / `XEX` / `XXX` |
-| 护腿 | `XXX` / `XEX` / `X X` |
-| 靴子 | `X X` / `XEX` |
-
 **羊毛盔甲** —— 全部使用 `minecraft:wool` 标签，因此**任意颜色的羊毛**都可以：
 
 | 部位 | 配方 |
@@ -259,7 +232,7 @@ Fabric 版见同级目录 `armor-addon/`。
 
 两条路线并存：既可以从下界合金盔甲 + 羊毛盔甲直接做，也可以先在锻造台把钻石内衬甲升上去。
 
-六套盔甲都会出现在创造模式「战斗」物品栏。
+五套盔甲都会出现在创造模式「战斗」物品栏。
 
 ## 安装
 
@@ -329,7 +302,7 @@ gradlew.bat runServer
 
 ```
 盔甲附加 1.0.0 (armor_addon)
-Loaded 1318 recipes        # 原版 1290 + 本模组 28 条（工作台 24 + 锻造台 4）
+Loaded 1314 recipes        # 原版 1290 + 本模组 24 条（工作台 20 + 锻造台 4）
 ```
 
 ## 项目结构
@@ -377,7 +350,7 @@ python tools/generate_textures.py
 
 MCreator 的盔甲元素按 `<registry_name>_layer_1.png` / `<registry_name>_layer_2.png`
 找穿戴贴图、按 `<name>.png` 找物品图标，所以只要把元素的 registry name 取成与套装名
-一致（`addon` / `wool` / `iron_lining` / `gold_lining` / `diamond_lining` / `alloy_lining`），
+一致（`wool` / `iron_lining` / `gold_lining` / `diamond_lining` / `alloy_lining`），
 它就会直接命中本模组已有的贴图。该元素还支持自定义 3D 模型
 （`helmetModelName` / `bodyModelName` / `leggingsModelName` / `bootsModelName`
 配合 `*ModelPart` 映射），模型类放在工作区的 `models/mojmap-1.21.x/` 下。

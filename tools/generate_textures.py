@@ -9,7 +9,7 @@
 
 因此本脚本默认**绝不覆盖已存在的贴图**：
   - 只补齐缺失的文件（正常情况下一个都不会生成）；
-  - 总是用当前的 `addon_helmet.png` 刷新 `icon.png`。
+  - 总是用当前的 `iron_lining_helmet.png` 刷新 `icon.png`。
 
 想强行用旧的 ASCII 模板重建全部贴图，需要显式加 `--force`
 —— 那会覆盖掉所有手绘版本，只会用于把仓库恢复到早期状态。
@@ -34,14 +34,6 @@ ASSETS = (
 )
 
 TRANSPARENT = (0, 0, 0, 0)
-
-# ---- 附加盔甲：冰钢蓝 ----
-ADDON_PALETTE = {
-    "D": (36, 54, 80, 255),  # 描边
-    "M": (94, 148, 202, 255),  # 主体
-    "L": (156, 206, 246, 255),  # 高光
-    "S": (56, 96, 142, 255),  # 阴影
-}
 
 # ---- 羊毛盔甲：暖白毛线 ----
 WOOL_PALETTE = {
@@ -163,7 +155,6 @@ SHAPES = {
 
 # set 名 -> (调色板, 是否加毛线质感)
 SETS = {
-    "addon": (ADDON_PALETTE, False),
     "wool": (WOOL_PALETTE, True),
     "iron_lining": (IRON_LINING_PALETTE, True),
     "gold_lining": (GOLD_LINING_PALETTE, True),
@@ -304,13 +295,13 @@ def main():
 
     print(f"新生成 {made} 个贴图，跳过已存在 {skipped} 个")
 
-    # 模组图标始终用「当前」的 addon_helmet 刷新，而不是本次新生成的
-    helmet = item_dir / "addon_helmet.png"
+    # 模组图标始终用「当前」的 iron_lining_helmet 刷新，而不是本次新生成的
+    helmet = item_dir / "iron_lining_helmet.png"
     if helmet.exists():
         Image.open(helmet).resize((128, 128), Image.NEAREST).save(ASSETS / "icon.png")
-        print("模组图标 icon.png 已按当前 addon_helmet.png 刷新")
+        print("模组图标 icon.png 已按当前 iron_lining_helmet.png 刷新")
     else:
-        print("!! 找不到 addon_helmet.png，未刷新模组图标")
+        print("!! 找不到 iron_lining_helmet.png，未刷新模组图标")
 
     print(f"\n贴图目录: {ASSETS}")
 

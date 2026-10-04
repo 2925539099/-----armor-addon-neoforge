@@ -26,32 +26,6 @@ public final class ModArmorMaterials {
 			DeferredRegister.create(Registries.ARMOR_MATERIAL, ArmorAddon.MOD_ID);
 
 	/**
-	 * 附加盔甲材料：防御与钻石相当，附魔亲和度更高，并带有少量韧性与击退抗性。
-	 */
-	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ADDON = ARMOR_MATERIALS.register(
-			"addon",
-			() -> new ArmorMaterial(
-					Map.of(
-							ArmorItem.Type.HELMET, 3,
-							ArmorItem.Type.CHESTPLATE, 8,
-							ArmorItem.Type.LEGGINGS, 6,
-							ArmorItem.Type.BOOTS, 3),
-					// 附魔亲和度：皮革 15、铁 9、钻石 10。
-					15,
-					// 穿戴音效。
-					SoundEvents.ARMOR_EQUIP_IRON,
-					// 铁砧修复材料。
-					() -> Ingredient.of(Items.IRON_INGOT),
-					// 贴图名、后缀、是否可染色。
-					// 贴图路径为 assets/armor_addon/textures/models/armor/addon_layer_1.png
-					List.of(new ArmorMaterial.Layer(
-							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "addon"), "", false)),
-					// 韧性。
-					2.0F,
-					// 击退抗性。
-					0.1F));
-
-	/**
 	 * 羊毛盔甲材料。
 	 *
 	 * <p>防御点与附魔亲和度同原版皮革盔甲，修复材料为羊毛（任意颜色），
