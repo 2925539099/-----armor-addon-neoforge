@@ -237,7 +237,7 @@ Fabric 版见同级目录 `armor-addon/`。
 ## 安装
 
 1. 安装 Minecraft 1.21.1 的 **NeoForge**（21.1.244 或更高的 21.1.x）。
-2. 将 `build/libs/盔甲附加-1.0.0.jar` 放入 `.minecraft/mods/`。
+2. 将 `build/libs/盔甲附加-<版本>.jar`（当前为 `盔甲附加-1.1.0.jar`）放入 `.minecraft/mods/`。
 
 **不需要**额外的前置模组。
 
@@ -253,7 +253,7 @@ gradlew.bat build
 ./gradlew build
 ```
 
-产物位于 `build/libs/盔甲附加-1.0.0.jar`（文件名在 `build.gradle` 的 `base.archivesName` 里设置）。
+产物位于 `build/libs/盔甲附加-<版本>.jar`（文件名在 `build.gradle` 的 `base.archivesName` 里设置，版本号取自 `gradle.properties` 的 `mod_version`）。
 
 > 本次构建使用的是工作区内的 Gradle 缓存目录 `../.gradle-home`。想复用它以免重新下载：
 >
@@ -301,7 +301,7 @@ gradlew.bat runServer
 日志里出现下面两行即说明盔甲与配方均已正确注册：
 
 ```
-盔甲附加 1.0.0 (armor_addon)
+盔甲附加 (Armor Addon) 1.1.0 (armor_addon)
 Loaded 1314 recipes        # 原版 1290 + 本模组 24 条（工作台 20 + 锻造台 4）
 ```
 
