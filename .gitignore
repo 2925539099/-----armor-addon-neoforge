@@ -11,8 +11,9 @@ build/
 bin/
 run/
 
-# ModMind 工具元数据
+# ModMind 工具元数据（本机开发用，不进版本控制）
 .modmind/
+modmind.project.json
 
 # MCreator 协作：MCreator 工作区的贴图目录通过目录联接指向本项目，
 # 因此 MCreator 生成的贴图会直接落到这里。它们不属于本模组，
