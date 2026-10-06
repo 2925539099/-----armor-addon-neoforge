@@ -4,6 +4,18 @@ Minecraft **1.21.1** / **NeoForge** 模组，新增六套共 24 件可合成的�
 
 Fabric 版见同级目录 `armor-addon/`。
 
+## 下载
+
+各版本的成品 jar 都在 [`releases/`](releases/) 目录，点文件名即可直接下载：
+
+| 版本 | 大小 | 内容 |
+| --- | --- | --- |
+| **1.1.0**（最新） | 58.7 KB | 六套 24 件，含木制盔甲 |
+| 1.0.1 | 51.8 KB | 五套 20 件 |
+| 1.0.0 | 51.5 KB | 五套 20 件，首个版本 |
+
+详见 [releases/README.md](releases/README.md) 与 [CHANGELOG.md](CHANGELOG.md)。
+
 ## 内容
 
 ### 木制盔甲（材料 `armor_addon:wood`）
@@ -265,7 +277,8 @@ Fabric 版见同级目录 `armor-addon/`。
 ## 安装
 
 1. 安装 Minecraft 1.21.1 的 **NeoForge**（21.1.244 或更高的 21.1.x）。
-2. 将 `build/libs/盔甲附加-<版本>.jar`（当前为 `盔甲附加-1.0.1.jar`）放入 `.minecraft/mods/`。
+2. 从本仓库的 [`releases/`](releases/) 目录下载 jar（也可自行构建，见下节），
+   放入 `.minecraft/mods/`。当前最新版本为 `盔甲附加-1.1.0.jar`。
 
 **不需要**额外的前置模组。
 
@@ -329,7 +342,7 @@ gradlew.bat runServer
 日志里出现下面两行即说明盔甲与配方均已正确注册：
 
 ```
-盔甲附加 (Armor Addon) 1.0.1 (armor_addon)
+盔甲附加 (Armor Addon) 1.1.0 (armor_addon)
 Loaded 1318 recipes        # 原版 1290 + 本模组 28 条（工作台 24 + 锻造台 4）
 ```
 
