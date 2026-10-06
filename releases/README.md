@@ -9,9 +9,9 @@
 
 | 版本 | 下载 | 大小 | 内容 |
 | --- | --- | --- | --- |
-| **1.1.0** | [盔甲附加-1.1.0.jar](https://github.com/2925539099/-----armor-addon-neoforge/raw/main/releases/%E7%9B%94%E7%94%B2%E9%99%84%E5%8A%A0-1.1.0.jar) | 58.7 KB | 六套 24 件：新增**木制盔甲** |
-| 1.0.1 | [盔甲附加-1.0.1.jar](https://github.com/2925539099/-----armor-addon-neoforge/raw/main/releases/%E7%9B%94%E7%94%B2%E9%99%84%E5%8A%A0-1.0.1.jar) | 51.8 KB | 五套 20 件：羊毛盔甲穿戴贴图更新 |
-| 1.0.0 | [盔甲附加-1.0.0.jar](https://github.com/2925539099/-----armor-addon-neoforge/raw/main/releases/%E7%9B%94%E7%94%B2%E9%99%84%E5%8A%A0-1.0.0.jar) | 51.5 KB | 五套 20 件：首个公开版本 |
+| **1.1.0** | [盔甲附加-1.1.0.jar](https://github.com/2925539099/armor-addon/raw/main/releases/%E7%9B%94%E7%94%B2%E9%99%84%E5%8A%A0-1.1.0.jar) | 58.7 KB | 六套 24 件：新增**木制盔甲** |
+| 1.0.1 | [盔甲附加-1.0.1.jar](https://github.com/2925539099/armor-addon/raw/main/releases/%E7%9B%94%E7%94%B2%E9%99%84%E5%8A%A0-1.0.1.jar) | 51.8 KB | 五套 20 件：羊毛盔甲穿戴贴图更新 |
+| 1.0.0 | [盔甲附加-1.0.0.jar](https://github.com/2925539099/armor-addon/raw/main/releases/%E7%9B%94%E7%94%B2%E9%99%84%E5%8A%A0-1.0.0.jar) | 51.5 KB | 五套 20 件：首个公开版本 |
 
 各版本的详细改动见 [更新日志](../CHANGELOG.md)，单版本说明见同目录的 `发布说明-*.md`。
 

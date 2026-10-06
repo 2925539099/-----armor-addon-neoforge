@@ -70,6 +70,6 @@
 - 装备外观由 `textures/models/armor/<材质名>_layer_1.png` / `_layer_2.png` 提供。
 - 内衬甲系列为单一固定材质，**不支持染色**。
 
-[1.1.0]: https://github.com/2925539099/-----armor-addon-neoforge/compare/1.0.1...1.1.0
-[1.0.1]: https://github.com/2925539099/-----armor-addon-neoforge/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/2925539099/-----armor-addon-neoforge/releases/tag/1.0.0
+[1.1.0]: https://github.com/2925539099/armor-addon/compare/1.0.1...1.1.0
+[1.0.1]: https://github.com/2925539099/armor-addon/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/2925539099/armor-addon/releases/tag/1.0.0
