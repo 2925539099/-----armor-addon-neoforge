@@ -237,9 +237,115 @@ Fabric 版见同级目录 `armor-addon/`。
 ## 安装
 
 1. 安装 Minecraft 1.21.1 的 **NeoForge**（21.1.244 或更高的 21.1.x）。
-2. 将 `build/libs/盔甲附加-<版本>.jar`（当前为 `盔甲附加-1.1.0.jar`）放入 `.minecraft/mods/`。
+2. 将 `build/libs/盔甲附加-<版本>.jar`（当前为 `盔甲附加-1.0.1.jar`）放入 `.minecraft/mods/`。
 
 **不需要**额外的前置模组。
+
+## 构建
+
+需要 **JDK 21**。
+
+```bash
+# Windows
+gradlew.bat build
+
+# Linux / macOS
+./gradlew build
+```
+
+产物位于 `build/libs/盔甲附加-<版本>.jar`（文件名在 `build.gradle` 的 `base.archivesName` 里设置，版本号取自 `gradle.properties` 的 `mod_version`）。
+
+> 本次构建使用的是工作区内的 Gradle 缓存目录 `../.gradle-home`。想复用它以免重新下载：
+>
+> ```powershell
+> $env:GRADLE_USER_HOME = "<工作区>\.gradle-home"
+> .\gradlew.bat build
+> ```
+>
+> 不设置也可以，Gradle 会改用默认的 `~/.gradle` 并重新下载依赖。
+
+### 关于下载源（重要）
+
+本机网络环境下，Mojang 官方下载源与 NeoForge 官方仓库**均不可达**：
+
+| 原始地址 | 状态 | 本项目使用的镜像 |
+| --- | --- | --- |
+| `libraries.minecraft.net` | 证书握手失败 | `bmclapi2.bangbang93.com/maven/` |
+| `piston-meta.mojang.com` / `piston-data.mojang.com` | 证书握手失败 | 本地重写代理 → BMCLAPI |
+| `resources.download.minecraft.net` | 证书握手失败 | `bmclapi2.bangbang93.com/assets/` |
+| `maven.neoforged.net/mojang-meta` | 连接超时 | `neoforged.forgecdn.net/mojang-meta/` |
+| `maven.neoforged.net/releases` | 连接超时 | `neoforged.forgecdn.net/releases/` |
+
+ModDevGradle 把前三个仓库**硬编码**在插件里，因此 `gradle/mojang-mirror.gradle`
+在构建时按名字把它们替换成镜像。
+
+而 NeoForm Runtime（NFRT）会从 Minecraft 版本清单与版本 JSON **内容里**读取
+client / server jar 的下载地址，这些地址无法用 Gradle 属性替换。所以该脚本还会启动
+一个本地 HTTP 重写代理：把 JSON 里所有 Mojang 域名改写成 `http://127.0.0.1:<端口>/`，
+再转发到 BMCLAPI，并通过 `neoFormRuntime.launcherManifestUrl` 提供给 NFRT。
+
+- 代理使用**固定端口** `mirror_port`（默认 47821）：NFRT 会缓存改写过 URL 的版本 JSON，
+  端口若每次都变，缓存里的地址就会失效导致下载失败。
+- 若你的网络能直连 Mojang 与 `maven.neoforged.net`，删掉 `build.gradle` 里的
+  `apply from: 'gradle/mojang-mirror.gradle'` 一行即可还原为官方源。
+
+Gradle 发行包通过华为云镜像下载（见 `gradle/wrapper/gradle-wrapper.properties`）。
+
+### 验证模组能否正常加载
+
+```bash
+gradlew.bat runServer
+```
+
+首次运行需要先在 `run/eula.txt` 中同意 Mojang EULA（本仓库已提供）。
+日志里出现下面两行即说明盔甲与配方均已正确注册：
+
+```
+盔甲附加 (Armor Addon) 1.0.1 (armor_addon)
+Loaded 1314 recipes        # 原版 1290 + 本模组 24 条（工作台 20 + 锻造台 4）
+```
+
+## 项目结构
+
+```
+armor-addon-neoforge/
+├── build.gradle                                    构建脚本（NeoForge ModDevGradle）
+├── gradle.properties                               版本号与镜像配置
+├── gradle/mojang-mirror.gradle                     仓库镜像 + Mojang 下载重写代理
+├── tools/generate_textures.py                      贴图生成脚本（Pillow）
+└── src/main/
+    ├── java/com/armoraddon/
+    │   ├── ArmorAddon.java                         主入口（@Mod）
+    │   └── item/
+    │       ├── ModArmorMaterials.java               盔甲材料 DeferredRegister
+    │       ├── ModItems.java                        盔甲物品 DeferredRegister
+    │       ├── WoolBootsItem.java                   羊毛靴子（可在细雪上行走）
+    │       ├── WoolBootsEvents.java                 羊毛靴子移动静音
+    │       └── ModCraftingEvents.java               内衬甲合成继承附魔/名称/损耗耐久
+    └── resources/
+        ├── META-INF/neoforge.mods.toml
+        ├── assets/armor_addon/                      贴图、模型、语言文件
+        └── data/armor_addon/recipe/                 合成配方
+```
+
+## 重新生成贴图
+
+```bash
+python tools/generate_textures.py
+```
+
+## 版本号规则
+
+采用语义化版本 `主.次.修正`（`MAJOR.MINOR.PATCH`）：
+
+| 位 | 何时递增 | 例子 |
+| --- | --- | --- |
+| **修正号** `1.0.x` | 小改动：替换 / 重绘贴图、改文案、改简介、修 bug | 羊毛护甲穿戴贴图换成手绘版 → `1.0.1` |
+| **次版本号** `1.x.0` | 新增内容：新增盔甲套装、新增物品、新增配方或机制 | 新增合金内衬甲 → `1.1.0` |
+| **主版本号** `x.0.0` | 不兼容变更：删除已有物品 / 改名导致旧存档失效、需要新版 NeoForge | 移除整套盔甲 → `2.0.0` |
+
+版本号写在本文件同级目录的 `gradle.properties` 的 `mod_version` 里，改完重新构建即可。
+完整改动记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 许可
 

@@ -67,16 +67,4 @@ processResources {
     filesMatching('META-INF/neoforge.mods.toml') {
         expand version: project.version
     }
-
-    // MCreator 协作：MCreator 工作区的贴图目录是指向本项目的目录联接，
-    // 因此这里会混有 MCreator 生成的贴图。它们不属于本模组，打包时排除。
-    //
-    // 本项目自己的贴图名从不含连续两个下划线，而 MCreator 把中文名转拼音后
-    // 一律追加 "__"（如 yang_mao_kui_jia__body.png），故用 *__* 兜住；
-    // 早期手写命名的那批（ymkj_* 等）没有双下划线，单独列出。
-    exclude 'assets/armor_addon/textures/**/*__*.png'
-    exclude 'assets/armor_addon/textures/item/ymkj_*.png'
-    exclude 'assets/armor_addon/textures/item/ym.png'
-    exclude 'assets/armor_addon/textures/item/tokui.png'
-    exclude 'assets/armor_addon/textures/models/armor/ymkj_*.png'
 }
