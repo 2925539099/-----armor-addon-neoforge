@@ -57,6 +57,43 @@ public final class ModArmorMaterials {
 					0.0F));
 
 	/**
+	 * 木制盔甲材料。
+	 *
+	 * <ul>
+	 *   <li>护甲值与原版皮革完全相同（头盔 1 / 胸甲 3 / 护腿 2 / 靴子 1）；</li>
+	 *   <li>附魔亲和度 5，刻意低于全部原版材质（皮革是 15），因此极难附魔；</li>
+	 *   <li>无韧性与击退抗性，与皮革一致；</li>
+	 *   <li>修复材料为任意原木（{@code minecraft:logs} 标签），与合成材料一致。</li>
+	 * </ul>
+	 *
+	 * <p>耐久为铁盔甲的一半（头盔 82 / 胸甲 120 / 护腿 112 / 靴子 97），
+	 * 因 15 ÷ 2 = 7.5 不是整数，故在注册物品时逐件写具体数值，而不是用倍率。</p>
+	 *
+	 * <p>原版没有木质盔甲音效，这里用通用的 {@code ARMOR_EQUIP_GENERIC}。</p>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> WOOD = ARMOR_MATERIALS.register(
+			"wood",
+			() -> new ArmorMaterial(
+					// 与皮革相同的防御点。
+					Map.of(
+							ArmorItem.Type.HELMET, 1,
+							ArmorItem.Type.CHESTPLATE, 3,
+							ArmorItem.Type.LEGGINGS, 2,
+							ArmorItem.Type.BOOTS, 1),
+					// 附魔亲和度 5，远低于原版最低的铁（9）。
+					5,
+					// 无木质音效，用通用音效。
+					SoundEvents.ARMOR_EQUIP_GENERIC,
+					// 修复材料：任意原木（minecraft:logs 标签）。
+					() -> Ingredient.of(ItemTags.LOGS),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "wood"), "", false)),
+					// 无韧性，同皮革。
+					0.0F,
+					// 无击退抗性，同皮革。
+					0.0F));
+
+	/**
 	 * 铁质内衬盔甲材料：羊毛盔甲与原版铁盔甲的升级版本。
 	 *
 	 * <ul>

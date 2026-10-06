@@ -26,6 +26,23 @@ public final class ModItems {
 
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ArmorAddon.MOD_ID);
 
+	// ---- 木制盔甲 ----
+	// 耐久为铁盔甲的一半。铁盔甲是 11/16/15/13 × 15 = 165/240/225/195，
+	// 除以 2 得 82.5/120/112.5/97.5，截断取整后逐件写具体值
+	// （15 ÷ 2 = 7.5 不是整数，无法用倍率表达）。
+	public static final DeferredItem<Item> WOOD_HELMET =
+			registerArmorWithDurability("wood_helmet", ModArmorMaterials.WOOD,
+					ArmorItem.Type.HELMET, 82);
+	public static final DeferredItem<Item> WOOD_CHESTPLATE =
+			registerArmorWithDurability("wood_chestplate", ModArmorMaterials.WOOD,
+					ArmorItem.Type.CHESTPLATE, 120);
+	public static final DeferredItem<Item> WOOD_LEGGINGS =
+			registerArmorWithDurability("wood_leggings", ModArmorMaterials.WOOD,
+					ArmorItem.Type.LEGGINGS, 112);
+	public static final DeferredItem<Item> WOOD_BOOTS =
+			registerArmorWithDurability("wood_boots", ModArmorMaterials.WOOD,
+					ArmorItem.Type.BOOTS, 97);
+
 	// ---- 羊毛盔甲 ----
 	public static final DeferredItem<Item> WOOL_HELMET =
 			registerArmor("wool_helmet", ModArmorMaterials.WOOL, ArmorItem.Type.HELMET, WOOL_DURABILITY_MULTIPLIER);

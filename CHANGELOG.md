@@ -5,6 +5,22 @@
 格式依据 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循语义化版本 `主.次.修正`。
 
+## [1.1.0]
+
+### 新增
+
+- **木制盔甲**（材料 `armor_addon:wood`）—— 4 件
+  - 由**任意原木**（`minecraft:logs` 标签）在工作台按原版盔甲形状合成，
+    橡木、云杉、绯红菌柄等全部可用。
+  - 护甲值与原版皮革完全相同（1 / 3 / 2 / 1）。
+  - 耐久为**铁盔甲的一半**：头盔 82 / 胸甲 120 / 护腿 112 / 靴子 97
+    （铁盔甲是 165 / 240 / 225 / 195）。
+  - **附魔亲和度只有 5**，远低于原版最低的铁（9），因此极难附魔。
+  - 无护甲韧性与击退抗性，与皮革一致；修复材料同为原木。
+  - 原版没有木质盔甲音效，穿戴音效使用通用的 `ARMOR_EQUIP_GENERIC`。
+
+- 模组内容由 5 套 20 件增至 **6 套 24 件**。
+
 ## [1.0.1]
 
 ### 变更
@@ -54,5 +70,6 @@
 - 装备外观由 `textures/models/armor/<材质名>_layer_1.png` / `_layer_2.png` 提供。
 - 内衬甲系列为单一固定材质，**不支持染色**。
 
+[1.1.0]: https://github.com/2925539099/-----armor-addon-neoforge/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/2925539099/-----armor-addon-neoforge/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/2925539099/-----armor-addon-neoforge/releases/tag/1.0.0
