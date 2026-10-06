@@ -1,8 +1,6 @@
-# 盔甲附加 (Armor Addon) — NeoForge 版
+# 盔甲附加 (Armor Addon)
 
 Minecraft **1.21.1** / **NeoForge** 模组，新增六套共 24 件可合成的盔甲。
-
-Fabric 版见同级目录 `armor-addon/`。
 
 ## 下载
 
