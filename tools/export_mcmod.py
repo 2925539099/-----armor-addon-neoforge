@@ -47,6 +47,7 @@ import re
 from pathlib import Path
 
 from PIL import Image
+from unicodedata import east_asian_width
 
 PROJ = Path(__file__).resolve().parent.parent
 JAVA = PROJ / "src/main/java/com/armoraddon/item/ModItems.java"
@@ -106,6 +107,13 @@ def parse_items() -> list[dict]:
     return out
 
 
+def pad(s: str, width: int, right: bool = False) -> str:
+    """按显示宽度对齐。中文/日文/韩文在终端里占 2 列，不能按字符数算。"""
+    w = sum(2 if east_asian_width(c) in "WF" else 1 for c in s)
+    fill = " " * max(0, width - w)
+    return fill + s if right else s + fill
+
+
 def icon_b64(path: Path, size: int) -> str:
     """把 16x16 贴图邻域放大到 size，返回 PNG 的 base64。"""
     img = Image.open(path).convert("RGBA").resize((size, size), Image.NEAREST)
@@ -122,8 +130,8 @@ def main() -> None:
     print(f"从 ModItems.java 解析到 {len(items)} 个物品\n")
 
     records, missing = [], []
-    print(f"{'注册名':<32}{'中文名':<12}{'英文名':<26}{'耐久':>6}")
-    print("-" * 78)
+    print(pad("注册名", 38) + pad("中文名", 18) + pad("英文名", 26) + pad("耐久", 6, True))
+    print("-" * 88)
     for it in items:
         key = f"item.{NAMESPACE}.{it['id']}"
         cn, enname = zh.get(key), en.get(key)
@@ -149,7 +157,8 @@ def main() -> None:
             "largeIcon": icon_b64(tex, LARGE),
         }
         records.append(rec)
-        print(f"{it['registerName']:<32}{cn:<12}{enname:<26}{it['durability']:>6}")
+        print(pad(it["registerName"], 38) + pad(cn, 18) + pad(enname, 26)
+              + pad(str(it["durability"]), 6, True))
 
     if missing:
         print("\n!! 存在问题，已中止：")
