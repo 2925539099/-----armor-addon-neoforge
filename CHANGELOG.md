@@ -5,11 +5,40 @@
 格式依据 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循语义化版本 `主.次.修正`。
 
+## [1.2.1]
+
+### 新增机制
+
+- **音波抗性** —— 羊毛盔甲、四种内衬甲、四种重型甲，共**九套**盔甲在穿戴时获得音波伤害减免。
+  - 每穿一件**减 1 点**伤害，穿满四件即减 4 点；最低减到 0，不会变成治疗。
+  - 例：普通难度下坚守者音波原本造成 6 点伤害，穿满四件后变为 2 点。
+  - **木制盔甲不在此列。**
+  - 抗性提升等原版减免照常生效，与原版行为一致。
+
+- 判定依据是伤害类型标签 `armor_addon:sonic_like`，默认只含 `minecraft:sonic_boom`。
+  整合包或数据包往这个标签里追加条目，其他模组注册的同类「穿透护甲的音波伤害」
+  也会一并被减免，不需要改代码：
+
+  ```json
+  // data/<你的命名空间>/tags/damage_type/sonic_like.json
+  {
+    "replace": false,
+    "values": ["othermod:some_sonic_damage"]
+  }
+  ```
+
+### 说明
+
+- 坚守者的远程音波攻击伤害类型为 `minecraft:sonic_boom`，原版设定里
+  **护甲、盾牌、保护魔咒都无法吸收**，只有抗性提升有效。本机制补上了这个缺口。
+- 已在 1.21.1 的游戏数据里核实：原版 `minecraft:bypasses_armor` 标签确实包含
+  `minecraft:sonic_boom`。
+
 ## [1.2.0]
 
 ### 新增
 
-- **盔甲升级模板**（rmor_addon:armor_upgrade_template）—— 1 件
+- **盔甲升级模板**（`armor_addon:armor_upgrade_template`）—— 1 件
   - 锻造台用的模板，在**工作台**按下面的布局合成：
 
     `
@@ -119,6 +148,7 @@
 - 装备外观由 `textures/models/armor/<材质名>_layer_1.png` / `_layer_2.png` 提供。
 - 内衬甲系列为单一固定材质，**不支持染色**。
 
+[1.2.1]: https://github.com/2925539099/armor-addon/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/2925539099/armor-addon/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/2925539099/armor-addon/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/2925539099/armor-addon/compare/1.0.0...1.0.1
