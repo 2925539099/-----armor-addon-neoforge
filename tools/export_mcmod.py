@@ -96,6 +96,13 @@ def parse_items() -> list[dict]:
             items[m.group(1)] = {"slot": m.group(2),
                                  "durability": BASE_DURABILITY[m.group(2)] * mult[m.group(3)]}
 
+    # 非盔甲物品（例如锻造模板）：ITEMS.register("xxx", () -> new Item(...))。
+    # 这类物品没有耐久，对应 LMS 里的 maxDurability 为 0。
+    for m in re.finditer(r'ITEMS\.register\("([a-z_]+)"\s*,\s*\(\)\s*->\s*new\s+Item\(', src):
+        name = m.group(1)
+        if name not in items:
+            items[name] = {"slot": "NONE", "durability": 0}
+
     out = []
     for name, info in sorted(items.items()):
         out.append({
@@ -149,7 +156,8 @@ def main() -> None:
             "englishName": enname,
             "registerName": it["registerName"],
             "type": "Item",
-            "maxStacksSize": 1,          # durability() 会把 MAX_STACK_SIZE 设为 1
+            # 有耐久的物品（盔甲）不可堆叠；普通物品默认堆叠 64。
+            "maxStacksSize": 1 if it["durability"] > 0 else 64,
             "maxDurability": it["durability"],
             "CreativeTabName": CREATIVE_TAB,
             "OredictList": "[]",         # 本模组物品未挂任何 tag
