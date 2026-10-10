@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "minecraft:iron_ingot"
+    },
+    "2": {
+      "item": "minecraft:coal_block"
+    },
+    "3": {
+      "item": "minecraft:torch"
+    },
+    "4": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "32 ",
+    " 4 "
+  ],
+  "result": {
+    "count": 1,
+    "id": "armor_addon:armor_upgrade_template"
+  }
+}

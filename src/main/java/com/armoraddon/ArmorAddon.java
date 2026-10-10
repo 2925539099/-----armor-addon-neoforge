@@ -43,6 +43,9 @@ public final class ArmorAddon {
 
 	private void addCreativeTabItems(BuildCreativeModeTabContentsEvent event) {
 		if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+			// 锻造模板放在最前，它是升级配方的入口。
+			event.accept(ModItems.ARMOR_UPGRADE_TEMPLATE);
+
 			event.accept(ModItems.WOOD_HELMET);
 			event.accept(ModItems.WOOD_CHESTPLATE);
 			event.accept(ModItems.WOOD_LEGGINGS);

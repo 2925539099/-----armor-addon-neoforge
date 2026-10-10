@@ -26,6 +26,21 @@ public final class ModItems {
 
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ArmorAddon.MOD_ID);
 
+	// ---- 锻造模板 ----
+	/**
+	 * 盔甲升级模板：锻造台用的模板。
+	 *
+	 * <p>非盔甲，因此是普通物品，不带耐久。在工作台按下面的布局合成：</p>
+	 *
+	 * <pre>
+	 *   空   铁锭   空
+	 *   火把 煤炭块 空
+	 *   空   铁桶   空
+	 * </pre>
+	 */
+	public static final DeferredItem<Item> ARMOR_UPGRADE_TEMPLATE =
+			ITEMS.register("armor_upgrade_template", () -> new Item(new Item.Properties()));
+
 	// ---- 木制盔甲 ----
 	// 耐久为铁盔甲的一半。铁盔甲是 11/16/15/13 × 15 = 165/240/225/195，
 	// 除以 2 得 82.5/120/112.5/97.5，截断取整后逐件写具体值
