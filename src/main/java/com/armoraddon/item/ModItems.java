@@ -144,6 +144,72 @@ public final class ModItems {
 			registerFireResistantArmor("alloy_lining_boots", ModArmorMaterials.ALLOY_LINING,
 					ArmorItem.Type.BOOTS, 577);
 
+	// ============================================================
+	//  重型甲系列 —— 属性以对应内衬甲为基础，护甲值 +2/+4/+3/+2，
+	//  韧性不变，附魔亲和度不变，耐久 ×1.5。
+	//  耐久逐件写具体值（×1.5 常出现 .5，按惯例截断取整）。
+	// ============================================================
+
+	// ---- 铁质重型甲（铁质内衬甲 198/288/270/234 ×1.5）----
+	// 297 / 432 / 405 / 351 均为整数。
+	public static final DeferredItem<Item> IRON_HEAVY_HELMET =
+			registerArmorWithDurability("iron_heavy_helmet", ModArmorMaterials.IRON_HEAVY,
+					ArmorItem.Type.HELMET, 297);
+	public static final DeferredItem<Item> IRON_HEAVY_CHESTPLATE =
+			registerArmorWithDurability("iron_heavy_chestplate", ModArmorMaterials.IRON_HEAVY,
+					ArmorItem.Type.CHESTPLATE, 432);
+	public static final DeferredItem<Item> IRON_HEAVY_LEGGINGS =
+			registerArmorWithDurability("iron_heavy_leggings", ModArmorMaterials.IRON_HEAVY,
+					ArmorItem.Type.LEGGINGS, 405);
+	public static final DeferredItem<Item> IRON_HEAVY_BOOTS =
+			registerArmorWithDurability("iron_heavy_boots", ModArmorMaterials.IRON_HEAVY,
+					ArmorItem.Type.BOOTS, 351);
+
+	// ---- 金制重型甲（金质内衬甲 92/134/126/109 ×1.5）----
+	// 138 / 201 / 189 / 163.5→163
+	public static final DeferredItem<Item> GOLD_HEAVY_HELMET =
+			registerArmorWithDurability("gold_heavy_helmet", ModArmorMaterials.GOLD_HEAVY,
+					ArmorItem.Type.HELMET, 138);
+	public static final DeferredItem<Item> GOLD_HEAVY_CHESTPLATE =
+			registerArmorWithDurability("gold_heavy_chestplate", ModArmorMaterials.GOLD_HEAVY,
+					ArmorItem.Type.CHESTPLATE, 201);
+	public static final DeferredItem<Item> GOLD_HEAVY_LEGGINGS =
+			registerArmorWithDurability("gold_heavy_leggings", ModArmorMaterials.GOLD_HEAVY,
+					ArmorItem.Type.LEGGINGS, 189);
+	public static final DeferredItem<Item> GOLD_HEAVY_BOOTS =
+			registerArmorWithDurability("gold_heavy_boots", ModArmorMaterials.GOLD_HEAVY,
+					ArmorItem.Type.BOOTS, 163);
+
+	// ---- 钻石重型甲（钻石内衬甲 435/633/594/514 ×1.5）----
+	// 652.5→652 / 949.5→949 / 891 / 771
+	public static final DeferredItem<Item> DIAMOND_HEAVY_HELMET =
+			registerArmorWithDurability("diamond_heavy_helmet", ModArmorMaterials.DIAMOND_HEAVY,
+					ArmorItem.Type.HELMET, 652);
+	public static final DeferredItem<Item> DIAMOND_HEAVY_CHESTPLATE =
+			registerArmorWithDurability("diamond_heavy_chestplate", ModArmorMaterials.DIAMOND_HEAVY,
+					ArmorItem.Type.CHESTPLATE, 949);
+	public static final DeferredItem<Item> DIAMOND_HEAVY_LEGGINGS =
+			registerArmorWithDurability("diamond_heavy_leggings", ModArmorMaterials.DIAMOND_HEAVY,
+					ArmorItem.Type.LEGGINGS, 891);
+	public static final DeferredItem<Item> DIAMOND_HEAVY_BOOTS =
+			registerArmorWithDurability("diamond_heavy_boots", ModArmorMaterials.DIAMOND_HEAVY,
+					ArmorItem.Type.BOOTS, 771);
+
+	// ---- 合金重型甲（合金内衬甲 488/710/666/577 ×1.5）----
+	// 732 / 1065 / 999 / 865.5→865，同样带抗火。
+	public static final DeferredItem<Item> ALLOY_HEAVY_HELMET =
+			registerFireResistantArmor("alloy_heavy_helmet", ModArmorMaterials.ALLOY_HEAVY,
+					ArmorItem.Type.HELMET, 732);
+	public static final DeferredItem<Item> ALLOY_HEAVY_CHESTPLATE =
+			registerFireResistantArmor("alloy_heavy_chestplate", ModArmorMaterials.ALLOY_HEAVY,
+					ArmorItem.Type.CHESTPLATE, 1065);
+	public static final DeferredItem<Item> ALLOY_HEAVY_LEGGINGS =
+			registerFireResistantArmor("alloy_heavy_leggings", ModArmorMaterials.ALLOY_HEAVY,
+					ArmorItem.Type.LEGGINGS, 999);
+	public static final DeferredItem<Item> ALLOY_HEAVY_BOOTS =
+			registerFireResistantArmor("alloy_heavy_boots", ModArmorMaterials.ALLOY_HEAVY,
+					ArmorItem.Type.BOOTS, 865);
+
 	private ModItems() {
 	}
 

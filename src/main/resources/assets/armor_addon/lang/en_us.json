@@ -23,5 +23,21 @@
   "item.armor_addon.alloy_lining_chestplate": "Alloy Lining Chestplate",
   "item.armor_addon.alloy_lining_leggings": "Alloy Lining Leggings",
   "item.armor_addon.alloy_lining_boots": "Alloy Lining Boots",
-  "item.armor_addon.armor_upgrade_template": "Armor Upgrade Template"
+  "item.armor_addon.armor_upgrade_template": "Armor Upgrade Template",
+  "item.armor_addon.iron_heavy_helmet": "Heavy Iron Helmet",
+  "item.armor_addon.iron_heavy_chestplate": "Heavy Iron Chestplate",
+  "item.armor_addon.iron_heavy_leggings": "Heavy Iron Leggings",
+  "item.armor_addon.iron_heavy_boots": "Heavy Iron Boots",
+  "item.armor_addon.gold_heavy_helmet": "Heavy Golden Helmet",
+  "item.armor_addon.gold_heavy_chestplate": "Heavy Golden Chestplate",
+  "item.armor_addon.gold_heavy_leggings": "Heavy Golden Leggings",
+  "item.armor_addon.gold_heavy_boots": "Heavy Golden Boots",
+  "item.armor_addon.diamond_heavy_helmet": "Heavy Diamond Helmet",
+  "item.armor_addon.diamond_heavy_chestplate": "Heavy Diamond Chestplate",
+  "item.armor_addon.diamond_heavy_leggings": "Heavy Diamond Leggings",
+  "item.armor_addon.diamond_heavy_boots": "Heavy Diamond Boots",
+  "item.armor_addon.alloy_heavy_helmet": "Heavy Alloy Helmet",
+  "item.armor_addon.alloy_heavy_chestplate": "Heavy Alloy Chestplate",
+  "item.armor_addon.alloy_heavy_leggings": "Heavy Alloy Leggings",
+  "item.armor_addon.alloy_heavy_boots": "Heavy Alloy Boots"
 }

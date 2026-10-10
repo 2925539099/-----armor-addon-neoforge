@@ -233,6 +233,116 @@ public final class ModArmorMaterials {
 					// 击退抗性沿用下界合金盔甲。
 					0.1F));
 
+	// ============================================================
+	//  重型甲系列
+	//
+	//  属性 = 对应的内衬甲为基础，护甲值按部位额外 +2 / +4 / +3 / +2，
+	//  韧性不变，附魔亲和度不变，击退抗性与材质音效、修复材料均沿用内衬甲。
+	//  耐久 ×1.5 不在这里设置，而是注册物品时逐件写具体数值。
+	// ============================================================
+
+	/**
+	 * 铁质重型甲材料。
+	 *
+	 * <ul>
+	 *   <li>护甲值：铁质内衬甲 (3/7/6/3) 各部位 +2/+4/+3/+2 → 5/11/9/5；</li>
+	 *   <li>韧性 2.0、附魔亲和度 9，均与铁质内衬甲相同；</li>
+	 *   <li>击退抗性 0.0，修复材料铁锭，铁甲音效。</li>
+	 * </ul>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> IRON_HEAVY = ARMOR_MATERIALS.register(
+			"iron_heavy",
+			() -> new ArmorMaterial(
+					// 铁质内衬甲 3/7/6/3，各部位 +2/+4/+3/+2。
+					Map.of(
+							ArmorItem.Type.HELMET, 5,
+							ArmorItem.Type.CHESTPLATE, 11,
+							ArmorItem.Type.LEGGINGS, 9,
+							ArmorItem.Type.BOOTS, 5),
+					// 附魔亲和度沿用铁质内衬甲。
+					9,
+					SoundEvents.ARMOR_EQUIP_IRON,
+					() -> Ingredient.of(Items.IRON_INGOT),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "iron_heavy"), "", false)),
+					// 韧性沿用铁质内衬甲。
+					2.0F,
+					// 击退抗性沿用铁质内衬甲。
+					0.0F));
+
+	/**
+	 * 金制重型甲材料。
+	 *
+	 * <ul>
+	 *   <li>护甲值：金质内衬甲 (3/6/4/2) → 5/10/7/4；</li>
+	 *   <li>韧性 2.0、附魔亲和度 25，均与金质内衬甲相同。</li>
+	 * </ul>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GOLD_HEAVY = ARMOR_MATERIALS.register(
+			"gold_heavy",
+			() -> new ArmorMaterial(
+					Map.of(
+							ArmorItem.Type.HELMET, 5,
+							ArmorItem.Type.CHESTPLATE, 10,
+							ArmorItem.Type.LEGGINGS, 7,
+							ArmorItem.Type.BOOTS, 4),
+					25,
+					SoundEvents.ARMOR_EQUIP_GOLD,
+					() -> Ingredient.of(Items.GOLD_INGOT),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "gold_heavy"), "", false)),
+					2.0F,
+					0.0F));
+
+	/**
+	 * 钻石重型甲材料。
+	 *
+	 * <ul>
+	 *   <li>护甲值：钻石内衬甲 (4/9/7/4) → 6/13/10/6；</li>
+	 *   <li>韧性 4.0、附魔亲和度 10，均与钻石内衬甲相同。</li>
+	 * </ul>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIAMOND_HEAVY = ARMOR_MATERIALS.register(
+			"diamond_heavy",
+			() -> new ArmorMaterial(
+					Map.of(
+							ArmorItem.Type.HELMET, 6,
+							ArmorItem.Type.CHESTPLATE, 13,
+							ArmorItem.Type.LEGGINGS, 10,
+							ArmorItem.Type.BOOTS, 6),
+					10,
+					SoundEvents.ARMOR_EQUIP_DIAMOND,
+					() -> Ingredient.of(Items.DIAMOND),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "diamond_heavy"), "", false)),
+					4.0F,
+					0.0F));
+
+	/**
+	 * 合金重型甲材料。
+	 *
+	 * <ul>
+	 *   <li>护甲值：合金内衬甲 (4/9/7/4) → 6/13/10/6；</li>
+	 *   <li>韧性 5.0、击退抗性 0.1、附魔亲和度 15，均与合金内衬甲相同；</li>
+	 *   <li>与合金内衬甲一样带抗火（物品不会被火烧毁）。</li>
+	 * </ul>
+	 */
+	public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ALLOY_HEAVY = ARMOR_MATERIALS.register(
+			"alloy_heavy",
+			() -> new ArmorMaterial(
+					Map.of(
+							ArmorItem.Type.HELMET, 6,
+							ArmorItem.Type.CHESTPLATE, 13,
+							ArmorItem.Type.LEGGINGS, 10,
+							ArmorItem.Type.BOOTS, 6),
+					15,
+					SoundEvents.ARMOR_EQUIP_NETHERITE,
+					() -> Ingredient.of(Items.NETHERITE_INGOT),
+					List.of(new ArmorMaterial.Layer(
+							ResourceLocation.fromNamespaceAndPath(ArmorAddon.MOD_ID, "alloy_heavy"), "", false)),
+					5.0F,
+					0.1F));
+
 	private ModArmorMaterials() {
 	}
 

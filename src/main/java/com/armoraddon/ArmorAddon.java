@@ -75,6 +75,27 @@ public final class ArmorAddon {
 			event.accept(ModItems.ALLOY_LINING_CHESTPLATE);
 			event.accept(ModItems.ALLOY_LINING_LEGGINGS);
 			event.accept(ModItems.ALLOY_LINING_BOOTS);
+
+			// ---- 重型甲（由对应内衬甲在锻造台升级而来）----
+			event.accept(ModItems.IRON_HEAVY_HELMET);
+			event.accept(ModItems.IRON_HEAVY_CHESTPLATE);
+			event.accept(ModItems.IRON_HEAVY_LEGGINGS);
+			event.accept(ModItems.IRON_HEAVY_BOOTS);
+
+			event.accept(ModItems.GOLD_HEAVY_HELMET);
+			event.accept(ModItems.GOLD_HEAVY_CHESTPLATE);
+			event.accept(ModItems.GOLD_HEAVY_LEGGINGS);
+			event.accept(ModItems.GOLD_HEAVY_BOOTS);
+
+			event.accept(ModItems.DIAMOND_HEAVY_HELMET);
+			event.accept(ModItems.DIAMOND_HEAVY_CHESTPLATE);
+			event.accept(ModItems.DIAMOND_HEAVY_LEGGINGS);
+			event.accept(ModItems.DIAMOND_HEAVY_BOOTS);
+
+			event.accept(ModItems.ALLOY_HEAVY_HELMET);
+			event.accept(ModItems.ALLOY_HEAVY_CHESTPLATE);
+			event.accept(ModItems.ALLOY_HEAVY_LEGGINGS);
+			event.accept(ModItems.ALLOY_HEAVY_BOOTS);
 		}
 	}
 }

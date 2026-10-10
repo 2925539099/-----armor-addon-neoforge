@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "armor_addon:armor_upgrade_template"
+  },
+  "base": {
+    "item": "armor_addon:gold_lining_boots"
+  },
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "armor_addon:gold_heavy_boots"
+  }
+}
